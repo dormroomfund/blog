@@ -1,4 +1,11 @@
-/* **** Layout Header **** */
+/* 
+
+****************************************
+Layout — Header
+****************************************
+
+*/
+
 .header {
   height: 72px;
   width: calc(100% - 260px);
@@ -29,7 +36,8 @@
 
 /* Header links */
 .header > div:nth-child(1) > a,
-.header > div:nth-child(3) > a {
+.header > div:nth-child(3) > a,
+.mobileMenu > div > a {
   color: black;
   font-weight: 500;
   text-transform: uppercase;
@@ -45,12 +53,62 @@
   font-size: 26px;
 }
 
-/* **** Layout content **** */
+/* Mobile menu */
+.headerMobileButton {
+  position: absolute;
+  top: 29px;
+  right: 30px;
+  display: none !important;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 72px;
+  background-color: white;
+  box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid  rgba(0, 0, 0, 0.2);
+  padding: 15px 30px;
+  width: calc(100% - 60px);
+}
+
+.mobileMenu > div {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0px;
+}
+
+.mobileMenu > div > a {
+  display: inline-block;
+}
+
+.mobileMenuOpen {
+  display: initial !important;
+}
+
+.mobileMenuClosed {
+  display: none !important;
+}
+
+/* 
+
+****************************************
+Layout — Content
+****************************************
+
+*/
+
 .content {
   min-height: calc(100vh - 274px);
 }
 
-/* **** Layout Footer **** */
+/* 
+
+****************************************
+Layout — Footer
+****************************************
+
+*/
+
 .footer {
   height: 200px;
   width: 100%;
@@ -78,4 +136,29 @@
 .footer h4 {
   font-size: 17px;
   margin: 5px 0px;
+}
+
+/* 
+
+****************************************
+Layout — Responsive
+****************************************
+
+*/
+
+@media screen and (max-width: 900px) {
+  /* Layout — Header */
+  .header > div:nth-child(1),
+  .header > div:nth-child(3) {
+    display: none;
+  }
+
+  .headerMobileButton {
+    display: initial !important;
+  }
+
+  /* Layout — Footer */
+  .footer > div {
+    width: calc(100% - 40px);
+  }
 }

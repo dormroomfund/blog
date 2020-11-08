@@ -1,4 +1,11 @@
-/* **** Global Styling **** */
+/* 
+
+****************************************
+Global Styling 
+****************************************
+
+*/
+
 body {
   margin: 0px;
   font-family: 'Circular Std';
@@ -6,7 +13,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* **** Custom Fonts **** */
+/* 
+
+****************************************
+Custom Fonts
+****************************************
+
+*/
+
 /* Circular Std Book */
 @font-face {
   font-family: 'Circular Std';
