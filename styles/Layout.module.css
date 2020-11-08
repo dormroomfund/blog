@@ -1,0 +1,81 @@
+/* **** Layout Header **** */
+.header {
+  height: 72px;
+  width: calc(100% - 260px);
+  padding: 0px 130px;
+  background-color: white;
+  filter: drop-shadow(0px 6px 14px rgba(187, 187, 187, 0.3));
+  display: flex;
+}
+
+/* Header subcontainers */
+.header > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header > div:nth-child(1) {
+  justify-content: flex-start;
+}
+
+.header > div:nth-child(2) {
+  justify-content: center;
+}
+
+.header > div:nth-child(3) {
+  justify-content: flex-end;
+}
+
+/* Header links */
+.header > div:nth-child(1) > a,
+.header > div:nth-child(3) > a {
+  color: black;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid black;
+  display: flex;
+}
+
+.header > div:nth-child(2) > a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+/* **** Layout content **** */
+.content {
+  min-height: calc(100vh - 274px);
+}
+
+/* **** Layout Footer **** */
+.footer {
+  height: 200px;
+  width: 100%;
+}
+
+.footer > div {
+  width: calc(100% - 260px);
+  margin: 0px auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 2px solid #B7D8FF;
+}
+
+.footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer h1 {
+  font-size: 42px;
+  margin: 0px;
+}
+
+.footer h4 {
+  font-size: 17px;
+  margin: 5px 0px;
+}

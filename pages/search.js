@@ -1,9 +1,9 @@
 import Layout from "components/Layout";
 
-export default function Home() {
+export default function Search() {
   return (
     <Layout>
-      <span>Blog home page goes here</span>
+      <span>Blog search page goes here</span>
     </Layout>
   );
 }
