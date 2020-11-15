@@ -26,4 +26,25 @@ const getAllPosts = async (QLPosts) => {
   return finalPosts;
 };
 
-export { getAllPosts };
+/**
+ * Cleans GraphQL response to single post
+ * @param {object} QLPost containing GraphQL response
+ * @returns {object} cleaned post info
+ */
+const getSinglePost = async (QLPost) => {
+  // Return post information
+  return {
+    title: QLPost.postBy.title,
+    author: {
+      name: QLPost.postBy.author.node.name,
+      avatar: QLPost.postBy.author.node.avatar.url,
+    },
+    featuredImage: QLPost.postBy.featuredImage.node,
+    date: QLPost.postBy.date,
+    content: QLPost.postBy.content,
+    tags: QLPost.postBy.tags.nodes,
+  };
+};
+
+// Export utils
+export { getAllPosts, getSinglePost };
