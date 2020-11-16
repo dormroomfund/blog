@@ -13,7 +13,7 @@ const ALL_POSTS = gql`
         excerpt
         featuredImage {
           node {
-            uri
+            mediaItemUrl
           }
         }
       }
@@ -44,7 +44,7 @@ export default function Home({ posts }) {
  * Server-side render, pull posts
  */
 export async function getServerSideProps() {
-  const res = await request("http://104.196.157.57/graphql", ALL_POSTS); // Collect posts
+  const res = await request(process.env.NEXT_PUBLIC_WP_URL, ALL_POSTS); // Collect posts
   const posts = await getAllPosts(res); // Clean response GraphQL
 
   // Return posts to page
