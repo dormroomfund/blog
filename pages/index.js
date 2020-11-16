@@ -75,8 +75,13 @@ export default function Home({ posts }) {
  */
 export async function getServerSideProps() {
   const res = await request(process.env.NEXT_PUBLIC_WP_URL, ALL_POSTS); // Collect posts
+  console.log(JSON.stringify(res, undefined, 2))
+
   const posts = await getAllPosts(res); // Clean response GraphQL
+  console.log(JSON.stringify(posts, undefined, 2))
 
   // Return posts to page
-  return { props: { posts: posts } };
+  return { 
+    props: { posts: posts } 
+  };
 }
