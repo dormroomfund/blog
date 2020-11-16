@@ -8,7 +8,7 @@ Global Styling
 
 body {
   margin: 0px;
-  font-family: 'Circular Std';
+  font-family: 'Circular Std', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,7 +24,7 @@ Custom Fonts
 /* Circular Std Book */
 @font-face {
   font-family: 'Circular Std';
-  src: ("/fonts/CirularStd-Book.otf");
+  src: url("/fonts/CircularStd-Book.otf");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -33,7 +33,7 @@ Custom Fonts
 /* Circular Std Book Italic */
 @font-face {
   font-family: 'Circular Std';
-  src: ("/fonts/CirularStd-BookItalic.otf");
+  src: url("/fonts/CircularStd-BookItalic.otf");
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -42,7 +42,7 @@ Custom Fonts
 /* Circular Std Bold */
 @font-face {
   font-family: 'Circular Std';
-  src: ("/fonts/CirularStd-Bold.otf");
+  src: url("/fonts/CircularStd-Bold.otf");
   font-style: bold;
   font-weight: 700;
   font-display: swap;
