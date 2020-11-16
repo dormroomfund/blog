@@ -63,7 +63,7 @@ Layout — Header
 }
 
 .mobileMenu {
-  position: absolute;
+  position: fixed;
   top: 72px;
   background-color: white;
   box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.2);
