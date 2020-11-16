@@ -1,0 +1,21 @@
+.fourohfour {
+  max-width: 1000px;
+  width: calc(100% - 40px);
+  margin: 0px auto;
+  text-align: center;
+}
+
+.fourohfour > h1 {
+  color: #828282;
+  font-size: 8rem;
+}
+
+.fourohfour > p {
+  font-size: 20px;
+  margin-block-end: 10px;
+}
+
+.fourohfour > a {
+  color: #FF3842;
+  text-decoration: none;
+}
