@@ -1,5 +1,5 @@
 import Head from "next/head"; // HTML head
-import Link from "next/link"; // DYnamic links
+import Link from "next/link"; // Dynamic routing
 import { useState, useEffect } from "react"; // State management
 import styles from "styles/Layout.module.css"; // Component module styling
 import { HamburgerButton } from "react-hamburger-button"; // Animated hamburger button
