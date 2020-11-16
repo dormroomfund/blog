@@ -1,9 +1,9 @@
-import { getSinglePost } from "utils";
-import Layout from "components/Layout";
-import styles from "styles/Post.module.css";
+import dayjs from "dayjs"; // Date rendering
+import Link from "next/link"; // Dynamic routing
+import { getSinglePost } from "utils"; // Collect post information
+import Layout from "components/Layout"; // Layout wrapper
+import styles from "styles/Post.module.css"; // Component module styling
 import { request, gql } from "graphql-request"; // GraphQL request library
-import dayjs from "dayjs";
-import Link from "next/link";
 
 /**
  * Generate GraphQL request from dynamic page slug
@@ -51,14 +51,20 @@ function postQueryGenerator(slug) {
   }`;
 }
 
+// URL --> current page slug
+// POST --> post content
+// FEATURED --> array of 3 other post titles, images, and slugs
 export default function Post({ url, post, featured }) {
-  console.log(featured);
-
   return (
+    // Render page in layout
     <Layout>
       <div className={styles.post}>
+        {/* Article title container */}
         <div className={styles.head}>
+          {/* Article title */}
           <h1>{post.title}</h1>
+
+          {/* Article metadata */}
           <div>
             <img src={post.author.avatar} alt="Author avatar" />
             <h4>{post.author.name}</h4>
@@ -66,30 +72,48 @@ export default function Post({ url, post, featured }) {
             <span>{dayjs(new Date(post.date)).format("MMMM D, YYYY")}</span>
           </div>
         </div>
+
+        {/* Article featured image */}
         <div className={styles.featuredImage}>
+          {/* Image */}
           <img
             src={post.featuredImage.mediaItemUrl}
             alt="Article featured image"
           />
+          {/* Injected caption */}
           <div
             dangerouslySetInnerHTML={{ __html: post.featuredImage.caption }}
           />
         </div>
+
+        {/* Article content */}
         <div className={styles.content}>
+          {/* Inject content */}
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
+
+        {/* Article tags + social buttons */}
         <div className={styles.foot}>
+          {/* Article tags */}
           <div>
             {post.tags && post.tags.length > 0
-              ? post.tags.map((tag, i) => {
+              ? // If tags array exists and contains > 0 tags
+                post.tags.map((tag, i) => {
+                  // Loop through and render tag names
                   return <span key={i}>{tag.name}</span>;
                 })
-              : null}
+              : // Else, render nothing
+                null}
           </div>
+
+          {/* Article social buttons */}
           <div>
+            {/* URL share link */}
             <a href={url} target="_blank" rel="noopener noreferrer">
               <img src="/vectors/link.svg" alt="Link share button" />
             </a>
+
+            {/* Twitter share link */}
             <a
               href={`http://twitter.com/share?text=Check%20out%20Dorm%20Room%20Fund%27s%20post:&url=${url}`}
               target="_blank"
@@ -97,6 +121,8 @@ export default function Post({ url, post, featured }) {
             >
               <img src="/vectors/twitter.svg" alt="Twitter share button" />
             </a>
+
+            {/* Facebook share link */}
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=Check%20out%20Dorm%20Room%20Fund%27s%20post:`}
               target="_blank"
@@ -107,12 +133,16 @@ export default function Post({ url, post, featured }) {
           </div>
         </div>
       </div>
+
+      {/* Other featured articles section */}
       <div className={styles.others}>
         <div>
           <h4>You might also like</h4>
           <div>
             {featured.map((post, i) => {
+              // For each featured article
               return (
+                // Return dynamic link to article
                 <Link href={post.uri} key={i}>
                   <a>
                     <img
@@ -141,7 +171,7 @@ export async function getServerSideProps({ params: { slug } }) {
   ); // Collect post data
   const post = await getSinglePost(res); // Clean GraphQL response
 
-  // Return posts to page
+  // Return data to page
   return {
     props: {
       url: `https://blog.dormroomfund.org/post/${slug}`,

@@ -150,6 +150,12 @@ Layout — Responsive
 
 @media screen and (max-width: 900px) {
   /* Layout — Header */
+  .header {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+
   .header > div:nth-child(1),
   .header > div:nth-child(3) {
     display: none;
