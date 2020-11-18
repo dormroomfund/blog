@@ -30,8 +30,7 @@ export default function Home({ posts }) {
           <div>
             <h1>Final Draft.</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore.
+              The go-to blog for all things student entrepreneurship.
             </p>
           </div>
           <div>
@@ -42,6 +41,7 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
+
       <Link href={posts[0].uri}>
         <a className={styles.feature}>
           <img src={posts[0].featuredImage} alt="Featured article image" />
