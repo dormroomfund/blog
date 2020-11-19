@@ -6,12 +6,11 @@
 - [ ] Reading time per post (Rennah)
 
 - [ ] Dynamic meta tags per post (Anish)
-- [ ] Home GraphQL pagination beyond first 10 posts (Anish)
 
-- [ ] Search functionality (lets pause on this for fast follow, ill temporary hide from front-end)
-- [ ] Newsletter CTA (fast-follow if time)
+- [ ] Search functionality (fast-follow)
+- [ ] Newsletter CTA (fast-follow)
+- [ ] Post progress bar (fast-follow)
 
 - [ ] Re-designed footer (**blocker: design**)
-- [ ] Post progress bar (fast-follow)
 - [ ] Better README (fast-follow)
 - [ ] Document: `pages/index.js` (fast-follow)

@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client"; // Query structure
 
-// Home: Collect all posts from WordPress
+// Home: Collect first 100 posts from WordPress
 const ALL_POSTS = gql`
   {
-    posts {
+    posts(first: 100) {
       nodes {
         title
         uri

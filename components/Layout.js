@@ -30,7 +30,7 @@ function HTMLHead() {
   return (
     <Head>
       {/* Meta title + description */}
-      <title>First Draft</title>
+      <title>Final Draft</title>
       <meta name="title" content="Final Draft" />
       <meta
         name="description"
@@ -166,9 +166,13 @@ function Header() {
           </Link>
         </div>
         <div>
+          {/* 
+          
+          Fast-follow: Search
+
           <Link href="/search">
             <a>Search</a>
-          </Link>
+          </Link>*/}
         </div>
 
         {/* Mobile menu toggle (hidden >900px width) */}
@@ -199,11 +203,15 @@ function Header() {
             Dorm Room Fund
           </a>
         </div>
+        {/*
+
+        Fast-follow: Search
+
         <div>
           <Link href="/search">
             <a>Search</a>
           </Link>
-        </div>
+        </div>*/}
       </div>
     </>
   );
@@ -222,7 +230,7 @@ function Footer() {
               <a>Final Draft.</a>
             </Link>
           </h1>
-          <h4>
+          <h2>
             by{" "}
             <a
               href="https://dormroomfund.com"
@@ -231,7 +239,7 @@ function Footer() {
             >
               Dorm Room Fund
             </a>
-          </h4>
+          </h2>
         </div>
       </div>
     </div>
