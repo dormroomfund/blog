@@ -78,7 +78,7 @@ function HTMLHead({ isPost }) {
       {/* Favicon */}
       <link
         rel="apple-touch-icon"
-        sizes="76x76"
+        sizes="180x180"
         href="/favicon/apple-touch-icon.png"
       />
       <link
