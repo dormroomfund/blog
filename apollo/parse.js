@@ -19,8 +19,10 @@ const getAllPosts = async (QLPosts) => {
       featuredImage: post.featuredImage?.node?.mediaItemUrl
         ? post.featuredImage.node.mediaItemUrl
         : "",
-      // 4 Post excerpt
+      // 4. Post excerpt
       excerpt: post.excerpt,
+      // 5. Post reading time in minute(s)
+      readingTime: post.readingTime,
     });
   }
 

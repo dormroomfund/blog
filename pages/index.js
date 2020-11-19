@@ -4,6 +4,26 @@ import Layout from "components/Layout"; // Layout wrapper
 import { ALL_POSTS } from "apollo/queries"; // GraphQL posts query
 import { getAllPosts } from "apollo/parse"; // Clean GraphQL response
 import styles from "styles/Home.module.css"; // Component module styling
+import { request, gql } from "graphql-request"; // GraphQL request library
+
+// Collect all posts from WordPress
+const ALL_POSTS = gql`
+  {
+    posts {
+      nodes {
+        title
+        uri
+        excerpt
+        readingTime
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default function Home({ posts }) {
   return (
@@ -29,6 +49,7 @@ export default function Home({ posts }) {
           <div>
             <h2>{posts[0].title}</h2>
             <div dangerouslySetInnerHTML={{ __html: posts[0].excerpt }} />
+            <p>Feature &nbsp;·&nbsp; {posts[0].readingTime} min read</p>
           </div>
         </a>
       </Link>
@@ -41,6 +62,7 @@ export default function Home({ posts }) {
                 <div>
                   <h3>{post.title}</h3>
                   <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+                  <p>{post.readingTime} min read</p>
                 </div>
               </a>
             </Link>
