@@ -59,6 +59,7 @@ const getSinglePost = async (QLPost) => {
   return {
     post: {
       title: QLPost.postBy.title,
+      excerpt: QLPost.postBy.excerpt,
       author: {
         name: QLPost.postBy.author.node.name,
         avatar: QLPost.postBy.author.node.avatar.url,

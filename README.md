@@ -2,10 +2,8 @@
 
 ### Active todos
 
-- [x] Fixed homepage styling (Rennah)
-- [x] Reading time per post (Rennah)
-
 - [ ] Dynamic meta tags per post (Anish)
+- [ ] Home GraphQL pagination versus simply loading first 100 posts
 
 - [ ] Search functionality (fast-follow)
 - [ ] Newsletter CTA (fast-follow)

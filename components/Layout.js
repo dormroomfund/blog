@@ -9,7 +9,7 @@ export default function Layout(props) {
     // Layout wrapper
     <div className={styles.layout}>
       {/* HTML Head */}
-      <HTMLHead />
+      <HTMLHead isPost={props.isPost} />
 
       {/* Header component */}
       <Header />
@@ -26,42 +26,54 @@ export default function Layout(props) {
 /**
  * HTML <Head></Head> container
  */
-function HTMLHead() {
+function HTMLHead({ isPost }) {
   return (
     <Head>
-      {/* Meta title + description */}
-      <title>Final Draft</title>
-      <meta name="title" content="Final Draft" />
-      <meta
-        name="description"
-        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
-      />
-
-      {/* Meta: Open Graph + Facebook */}
+      {/* Shared meta */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://blog.dormroomfund.com/" />
-      <meta property="og:title" content="Final Draft" />
-      <meta
-        property="og:description"
-        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
-      />
-      <meta
-        property="og:image"
-        content="https://blog.dormroomfund.com/brand/meta.png"
-      />
-
-      {/* Meta: Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://blog.dormroomfund.com/" />
-      <meta property="twitter:title" content="Final Draft" />
-      <meta
-        property="twitter:description"
-        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
-      />
-      <meta
-        property="twitter:image"
-        content="https://blog.dormroomfund.com/brand/meta.png"
-      />
+
+      {!isPost ? (
+        // If page is not an individual post
+        // With its own injected meta
+        // Inject home meta
+        <>
+          {/* Meta: General meta */}
+          <title>Final Draft</title>
+          <meta name="title" content="Final Draft" />
+          <meta
+            name="description"
+            content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+          />
+
+          {/* Meta: Open Graph + Facebook */}
+          <meta property="og:url" content="https://blog.dormroomfund.com/" />
+          <meta property="og:title" content="Final Draft" />
+          <meta
+            property="og:description"
+            content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+          />
+          <meta
+            property="og:image"
+            content="https://blog.dormroomfund.com/brand/meta.png"
+          />
+
+          {/* Meta: Twitter */}
+          <meta
+            property="twitter:url"
+            content="https://blog.dormroomfund.com/"
+          />
+          <meta property="twitter:title" content="Final Draft" />
+          <meta
+            property="twitter:description"
+            content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+          />
+          <meta
+            property="twitter:image"
+            content="https://blog.dormroomfund.com/brand/meta.png"
+          />
+        </>
+      ) : null}
 
       {/* Favicon */}
       <link

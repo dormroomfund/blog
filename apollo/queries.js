@@ -29,6 +29,7 @@ function postQueryGenerator(slug) {
   query MyQuery {
     postBy(slug: "${slug}") {
       title
+      excerpt
       author {
         node {
           avatar {

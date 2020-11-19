@@ -1,5 +1,6 @@
 import dayjs from "dayjs"; // Date rendering
 import client from "apollo"; // Apollo GraphQL client
+import Head from "next/head"; // Head meta
 import Link from "next/link"; // Dynamic routing
 import Layout from "components/Layout"; // Layout wrapper
 import styles from "styles/Post.module.css"; // Component module styling
@@ -12,7 +13,43 @@ import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 export default function Post({ url, post, featured }) {
   return (
     // Render page in layout
-    <Layout>
+    <Layout isPost>
+      {/* Dynamic post meta */}
+      <Head>
+        {/* Meta: General meta */}
+        <title>Final Draft: {post.title}</title>
+        <meta name="title" content={post.title} />
+        <meta
+          name="description"
+          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+        />
+
+        {/* Meta: Open Graph + Facebook */}
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={post.title} />
+        <meta
+          property="og:description"
+          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+        />
+        <meta
+          property="og:image"
+          content="https://blog.dormroomfund.com/brand/meta.png"
+        />
+
+        {/* Meta: Twitter */}
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={post.title} />
+        <meta
+          property="twitter:description"
+          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+        />
+        <meta
+          property="twitter:image"
+          content="https://blog.dormroomfund.com/brand/meta.png"
+        />
+      </Head>
+
+      {/* Post content */}
       <div className={styles.post}>
         {/* Article title container */}
         <div className={styles.head}>

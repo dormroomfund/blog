@@ -15,10 +15,7 @@ export default function Home({ posts }) {
             <p>The go-to blog for all things student entrepreneurship.</p>
           </div>
           <div>
-            <img
-              src="https://www.dormroomfund.com/_next/static/images/community-photo-e21bc4920c77d7d3eec48547ba87c3b2.jpg"
-              alt="DRF"
-            />
+            <img src="/brand/community_photo.jpg" alt="DRF" />
           </div>
         </div>
       </div>
