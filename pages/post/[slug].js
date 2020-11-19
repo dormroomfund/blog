@@ -98,7 +98,7 @@ export default function Post({ url, post, featured }) {
               // For each featured article
               return (
                 // Return dynamic link to article
-                <Link href={post.uri} key={i}>
+                <Link href={`/post${post.uri}`} key={i}>
                   <a>
                     <img
                       src={post.featuredImage.node.mediaItemUrl}
