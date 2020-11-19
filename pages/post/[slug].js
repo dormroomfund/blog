@@ -1,55 +1,10 @@
 import dayjs from "dayjs"; // Date rendering
+import client from "apollo"; // Apollo GraphQL client
 import Link from "next/link"; // Dynamic routing
-import { getSinglePost } from "utils"; // Collect post information
 import Layout from "components/Layout"; // Layout wrapper
 import styles from "styles/Post.module.css"; // Component module styling
-import { request, gql } from "graphql-request"; // GraphQL request library
-
-/**
- * Generate GraphQL request from dynamic page slug
- * @param {string} slug post slug
- * @returns {gql} gql query object
- */
-function postQueryGenerator(slug) {
-  return gql`
-  query MyQuery {
-    postBy(slug: "${slug}") {
-      title
-      author {
-        node {
-          avatar {
-            url
-          }
-          name
-        }
-      }
-      date
-      featuredImage {
-        node {
-          mediaItemUrl
-          caption
-        }
-      }
-      content(format: RENDERED)
-      tags {
-        nodes {
-          name
-        }
-      }
-    }
-    posts(first: 4) {
-      nodes {
-        title
-        uri
-        featuredImage {
-          node {
-            mediaItemUrl
-          }
-        }
-      }
-    }
-  }`;
-}
+import { getSinglePost } from "apollo/parse"; // Collect post information
+import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 
 // URL --> current page slug
 // POST --> post content
@@ -165,11 +120,9 @@ export default function Post({ url, post, featured }) {
  * Server-side render, pull individual post from slug
  */
 export async function getServerSideProps({ params: { slug } }) {
-  const res = await request(
-    process.env.NEXT_PUBLIC_WP_URL,
-    postQueryGenerator(slug)
-  ); // Collect post data
-  const post = await getSinglePost(res); // Clean GraphQL response
+  const query = postQueryGenerator(slug); // Generate gql query
+  const response = await client.query({ query: query }); // Collect GraphQL response
+  const post = await getSinglePost(response.data); // Clean GraphQL response
 
   // Return data to page
   return {

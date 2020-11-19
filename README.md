@@ -2,15 +2,16 @@
 
 ### Active todos
 
-- [ ] Fixed homepage styling
-- [ ] Global meta tags (**blocker: design**)
-- [ ] Dynamic meta tags per post (**blocker: design**)
-- [ ] Reading time per post
-- [ ] Home GraphQL pagination beyond first 10 posts
-- [ ] Search functionality
-- [ ] Newsletter CTA (**blocker: design**)
+- [ ] Fixed homepage styling (Rennah)
+- [ ] Reading time per post (Rennah)
+
+- [ ] Dynamic meta tags per post (Anish)
+- [ ] Home GraphQL pagination beyond first 10 posts (Anish)
+
+- [ ] Search functionality (lets pause on this for fast follow, ill temporary hide from front-end)
+- [ ] Newsletter CTA (fast-follow if time)
+
 - [ ] Re-designed footer (**blocker: design**)
-- [ ] Post progress bar
-- [ ] 404 page (**blocker: design**)
-- [ ] Better README
-- [ ] Document: `pages/index.js`
+- [ ] Post progress bar (fast-follow)
+- [ ] Better README (fast-follow)
+- [ ] Document: `pages/index.js` (fast-follow)

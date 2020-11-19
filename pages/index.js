@@ -1,26 +1,9 @@
+import client from "apollo"; // Apollo GraphQL client
 import Link from "next/link"; // Dynamic routing
-import { getAllPosts } from "utils"; // Clean GraphQL response
 import Layout from "components/Layout"; // Layout wrapper
+import { ALL_POSTS } from "apollo/queries"; // GraphQL posts query
+import { getAllPosts } from "apollo/parse"; // Clean GraphQL response
 import styles from "styles/Home.module.css"; // Component module styling
-import { request, gql } from "graphql-request"; // GraphQL request library
-
-// Collect all posts from WordPress
-const ALL_POSTS = gql`
-  {
-    posts {
-      nodes {
-        title
-        uri
-        excerpt
-        featuredImage {
-          node {
-            mediaItemUrl
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default function Home({ posts }) {
   return (
@@ -29,9 +12,7 @@ export default function Home({ posts }) {
         <div>
           <div>
             <h1>Final Draft.</h1>
-            <p>
-              The go-to blog for all things student entrepreneurship.
-            </p>
+            <p>The go-to blog for all things student entrepreneurship.</p>
           </div>
           <div>
             <img
@@ -74,14 +55,11 @@ export default function Home({ posts }) {
  * Server-side render, pull posts
  */
 export async function getServerSideProps() {
-  const res = await request(process.env.NEXT_PUBLIC_WP_URL, ALL_POSTS); // Collect posts
-  console.log(JSON.stringify(res, undefined, 2))
-
-  const posts = await getAllPosts(res); // Clean response GraphQL
-  console.log(JSON.stringify(posts, undefined, 2))
+  const response = await client.query({ query: ALL_POSTS }); // Collect posts
+  const posts = await getAllPosts(response.data); // Clean response GraphQL
 
   // Return posts to page
-  return { 
-    props: { posts: posts } 
+  return {
+    props: { posts: posts },
   };
 }

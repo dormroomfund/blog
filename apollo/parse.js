@@ -70,5 +70,5 @@ const getSinglePost = async (QLPost) => {
   };
 };
 
-// Export utils
+// Export parsing utils
 export { getAllPosts, getSinglePost };
