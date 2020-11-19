@@ -12,6 +12,7 @@ const ALL_POSTS = gql`
         title
         uri
         excerpt
+        readingTime
         featuredImage {
           node {
             mediaItemUrl
@@ -48,6 +49,7 @@ export default function Home({ posts }) {
           <div>
             <h2>{posts[0].title}</h2>
             <div dangerouslySetInnerHTML={{ __html: posts[0].excerpt }} />
+            <p>Feature &nbsp;·&nbsp; {posts[0].readingTime} min read</p>
           </div>
         </a>
       </Link>
@@ -60,6 +62,7 @@ export default function Home({ posts }) {
                 <div>
                   <h3>{post.title}</h3>
                   <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+                  <p>{post.readingTime} min read</p>
                 </div>
               </a>
             </Link>
