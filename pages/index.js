@@ -1,5 +1,6 @@
 import client from "apollo"; // Apollo GraphQL client
 import Link from "next/link"; // Dynamic routing
+import LazyLoad from "react-lazyload"; // LazyLoad wrapper
 import Layout from "components/Layout"; // Layout wrapper
 import { ALL_POSTS } from "apollo/queries"; // GraphQL posts query
 import { getAllPosts } from "apollo/parse"; // Clean GraphQL response
@@ -33,16 +34,18 @@ export default function Home({ posts }) {
       <div className={styles.posts}>
         {posts.slice(1).map((post, i) => {
           return (
-            <Link href={post.uri} key={i}>
-              <a>
-                <img src={post.featuredImage} alt="Featured image" />
-                <div>
-                  <h3>{post.title}</h3>
-                  <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-                  <p>{post.readingTime} min read</p>
-                </div>
-              </a>
-            </Link>
+            <LazyLoad offset={300} once>
+              <Link href={post.uri} key={i}>
+                <a>
+                  <img src={post.featuredImage} alt="Featured image" />
+                  <div>
+                    <h3>{post.title}</h3>
+                    <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+                    <p>{post.readingTime} min read</p>
+                  </div>
+                </a>
+              </Link>
+            </LazyLoad>
           );
         })}
       </div>

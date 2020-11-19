@@ -104,26 +104,29 @@
   margin: 30px auto 80px auto;
 }
 
-.posts > a {
+.posts > div {
+  display: inline-block;
+}
+
+.posts > div:nth-child(odd) {
+  margin-right: 16px;
+}
+
+.posts > div:nth-child(even) {
+  margin-left: 16px;
+}
+
+.posts > div > a {
   text-decoration: none;
   display: inline-block;
   vertical-align: top;
   max-width: 475px;
   padding-bottom: 20px;
-  /* border-bottom: 1px solid #DCDCDC; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.posts > a:nth-child(odd) {
-  margin-right: 16px;
-}
-
-.posts > a:nth-child(even) {
-  margin-left: 16px;
-}
-
-.posts > a > img {
+.posts > div > a > img {
   max-width: 475px;
   max-height: 475px;
   width: 90vw;
@@ -131,7 +134,7 @@
   object-fit: cover;
 }
 
-.posts > a > div {
+.posts > div > a > div {
   width: calc(100% - 64px);
   background-color: #ffffff;
   display: inline-block;
@@ -139,28 +142,28 @@
   margin-bottom: 20px;
 }
 
-.posts > a > div > h3 {
+.posts > div > a > div > h3 {
   font-size: 32px;
   line-height: 45px;
   color: #424242;
   margin-right: 30px;
 }
 
-.posts > a > div > p {
+.posts > div > a > div > p {
   color: #424242;
   font-size: 15px;
   line-height: 22px;
   margin-bottom: 31px;
 }
 
-.posts > a > div > div > p {
+.posts > div > a > div > div > p {
   color: #424242;
   font-size: 15px;
   line-height: 22px;
   margin-bottom: 31px;
 }
 
-.posts > a > div > div > p > span > span {
+.posts > div > a > div > div > p > span > span {
   display: none;
 }
 
@@ -169,18 +172,17 @@
     display: none;
   }
 
-  .posts > a {
+  .posts > div > a {
     max-width: 100%;
-    margin: 50px 0px;
   }
 
-  .posts > a:nth-child(odd),
-  .posts > a:nth-child(even) {
+  .posts > div:nth-child(odd),
+  .posts > div:nth-child(even) {
     margin-left: 0px;
     margin-right: 0px;
   }
   
-  .posts > a > img {
+  .posts > div > a > img {
     max-width: 100%;
     max-height: 475px;
     width: 100%;
