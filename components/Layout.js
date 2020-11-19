@@ -29,8 +29,68 @@ export default function Layout(props) {
 function HTMLHead() {
   return (
     <Head>
-      {/* Meta content */}
-      <title>First Draft</title>
+      {/* Meta title + description */}
+      <title>Final Draft</title>
+      <meta name="title" content="Final Draft" />
+      <meta
+        name="description"
+        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+      />
+
+      {/* Meta: Open Graph + Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://blog.dormroomfund.com/" />
+      <meta property="og:title" content="Final Draft" />
+      <meta
+        property="og:description"
+        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+      />
+      <meta
+        property="og:image"
+        content="https://blog.dormroomfund.com/brand/meta.png"
+      />
+
+      {/* Meta: Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://blog.dormroomfund.com/" />
+      <meta property="twitter:title" content="Final Draft" />
+      <meta
+        property="twitter:description"
+        content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
+      />
+      <meta
+        property="twitter:image"
+        content="https://blog.dormroomfund.com/brand/meta.png"
+      />
+
+      {/* Favicon */}
+      <link
+        rel="apple-touch-icon"
+        sizes="76x76"
+        href="/favicon/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <link
+        rel="mask-icon"
+        href="/favicon/safari-pinned-tab.svg"
+        color="#5bbad5"
+      />
+      <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+      <meta name="theme-color" content="#ffffff" />
 
       {/* Preload fonts for performance */}
       <link
@@ -106,9 +166,13 @@ function Header() {
           </Link>
         </div>
         <div>
+          {/* 
+          
+          Fast-follow: Search
+
           <Link href="/search">
             <a>Search</a>
-          </Link>
+          </Link>*/}
         </div>
 
         {/* Mobile menu toggle (hidden >900px width) */}
@@ -139,11 +203,15 @@ function Header() {
             Dorm Room Fund
           </a>
         </div>
+        {/*
+
+        Fast-follow: Search
+
         <div>
           <Link href="/search">
             <a>Search</a>
           </Link>
-        </div>
+        </div>*/}
       </div>
     </>
   );
@@ -162,7 +230,7 @@ function Footer() {
               <a>Final Draft.</a>
             </Link>
           </h1>
-          <h4>
+          <h2>
             by{" "}
             <a
               href="https://dormroomfund.com"
@@ -171,7 +239,7 @@ function Footer() {
             >
               Dorm Room Fund
             </a>
-          </h4>
+          </h2>
         </div>
       </div>
     </div>
