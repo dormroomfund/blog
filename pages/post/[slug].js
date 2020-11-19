@@ -11,6 +11,16 @@ import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 // POST --> post content
 // FEATURED --> array of 3 other post titles, images, and slugs
 export default function Post({ url, post, featured }) {
+  /**
+   * Formats html entities in description strings
+   * @param {string} string containing meta description
+   */
+  const handleEntities = (string) => {
+    return (string + "").replace(/&#\d+;/gm, function (s) {
+      return String.fromCharCode(s.match(/\d+/gm)[0]);
+    });
+  };
+
   return (
     // Render page in layout
     <Layout isPost>
@@ -21,7 +31,9 @@ export default function Post({ url, post, featured }) {
         <meta name="title" content={post.title} />
         <meta
           name="description"
-          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+          content={`${handleEntities(
+            post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
+          )}...`}
         />
 
         {/* Meta: Open Graph + Facebook */}
@@ -29,7 +41,9 @@ export default function Post({ url, post, featured }) {
         <meta property="og:title" content={post.title} />
         <meta
           property="og:description"
-          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+          content={`${handleEntities(
+            post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
+          )}...`}
         />
         <meta property="og:image" content={post.featuredImage.mediaItemUrl} />
 
@@ -38,7 +52,9 @@ export default function Post({ url, post, featured }) {
         <meta property="twitter:title" content={post.title} />
         <meta
           property="twitter:description"
-          content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
+          content={`${handleEntities(
+            post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
+          )}...`}
         />
         <meta
           property="twitter:image"
