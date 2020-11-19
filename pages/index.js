@@ -6,25 +6,6 @@ import { getAllPosts } from "apollo/parse"; // Clean GraphQL response
 import styles from "styles/Home.module.css"; // Component module styling
 import { request, gql } from "graphql-request"; // GraphQL request library
 
-// Collect all posts from WordPress
-const ALL_POSTS = gql`
-  {
-    posts {
-      nodes {
-        title
-        uri
-        excerpt
-        readingTime
-        featuredImage {
-          node {
-            mediaItemUrl
-          }
-        }
-      }
-    }
-  }
-`;
-
 export default function Home({ posts }) {
   return (
     <Layout>
