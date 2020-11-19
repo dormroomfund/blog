@@ -31,10 +31,7 @@ export default function Post({ url, post, featured }) {
           property="og:description"
           content={`${post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)}...`}
         />
-        <meta
-          property="og:image"
-          content="https://blog.dormroomfund.com/brand/meta.png"
-        />
+        <meta property="og:image" content={post.featuredImage.mediaItemUrl} />
 
         {/* Meta: Twitter */}
         <meta property="twitter:url" content={url} />
@@ -45,7 +42,7 @@ export default function Post({ url, post, featured }) {
         />
         <meta
           property="twitter:image"
-          content="https://blog.dormroomfund.com/brand/meta.png"
+          content={post.featuredImage.mediaItemUrl}
         />
       </Head>
 
