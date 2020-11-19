@@ -48,7 +48,6 @@ const getSinglePost = async (QLPost) => {
         title: post.title,
         uri: post.uri,
         featuredImage: post.featuredImage.node,
-        readingTime: post.readingTime,
       };
     }
   });
@@ -68,7 +67,6 @@ const getSinglePost = async (QLPost) => {
       date: QLPost.postBy.date,
       content: QLPost.postBy.content,
       tags: QLPost.postBy.tags.nodes,
-      readingTime: QLPost.readingTime,
     },
     featuredPosts,
   };
