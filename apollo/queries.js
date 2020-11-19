@@ -13,6 +13,7 @@ const ALL_POSTS = gql`
             mediaItemUrl
           }
         }
+        readingTime
       }
     }
   }

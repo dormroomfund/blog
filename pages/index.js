@@ -4,7 +4,6 @@ import Layout from "components/Layout"; // Layout wrapper
 import { ALL_POSTS } from "apollo/queries"; // GraphQL posts query
 import { getAllPosts } from "apollo/parse"; // Clean GraphQL response
 import styles from "styles/Home.module.css"; // Component module styling
-import { request, gql } from "graphql-request"; // GraphQL request library
 
 export default function Home({ posts }) {
   return (
