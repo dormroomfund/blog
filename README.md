@@ -2,8 +2,8 @@
 
 ### Active todos
 
-- [ ] Fixed homepage styling (Rennah)
-- [ ] Reading time per post (Rennah)
+- [x] Fixed homepage styling (Rennah)
+- [x] Reading time per post (Rennah)
 
 - [ ] Dynamic meta tags per post (Anish)
 
