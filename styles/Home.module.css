@@ -28,7 +28,7 @@
 
 .head > div > div:nth-child(1) > p {
   color: #424242;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 38px;
   max-width: 580px;
 }
@@ -90,7 +90,7 @@
   vertical-align: top;
   max-width: 475px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #DCDCDC;
+  /* border-bottom: 1px solid #DCDCDC; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
