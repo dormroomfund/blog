@@ -1,6 +1,5 @@
 import client from "apollo"; // Apollo client
 import puppeteer from "puppeteer-core"; // Puppeteer core components
-import chrome from "chrome-aws-lambda"; // Default Chrome serverless args
 import { postMetaGenerator } from "apollo/queries"; // Single post query
 
 export default async (req, res) => {
@@ -37,10 +36,13 @@ export default async (req, res) => {
 const getScreenshot = async function ({ html }) {
   // Launch new puppetter instance
   const browser = await puppeteer.launch({
-    // Default chrome args
-    args: chrome.args,
-    // For local testing, change to: "/Applications/Chrome.app/Contents/MacOS/Google Chrome"
-    executablePath: await chrome.executablePath,
+    // Default heroku args
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--single-process",
+    ],
     // For local testing, change to: true
     headless: true,
   });
