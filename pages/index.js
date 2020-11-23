@@ -13,7 +13,10 @@ export default function Home({ posts }) {
         <div>
           <div>
             <h1>Final Draft.</h1>
-            <p>The go-to blog for all things student entrepreneurship.</p>
+            <p>
+              The latest thoughts, news, and musings from the students of Dorm
+              Room Fund, the original student-run venture fund.
+            </p>
           </div>
           <div>
             <img src="/brand/community_photo.jpg" alt="DRF" />
