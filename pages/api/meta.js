@@ -1,4 +1,5 @@
 import client from "apollo"; // Apollo client
+import chrome from "chrome-aws-lambda";
 import puppeteer from "puppeteer-core"; // Puppeteer core components
 import { postMetaGenerator } from "apollo/queries"; // Single post query
 
@@ -43,6 +44,7 @@ const getScreenshot = async function ({ html }) {
       "--disable-dev-shm-usage",
       "--single-process",
     ],
+    executablePath: await chrome.executablePath,
     // For local testing, change to: true
     headless: true,
   });
