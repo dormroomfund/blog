@@ -58,7 +58,7 @@ There are a few configuration details (in terms of setting up the headless [Word
 1. Install the [WPGraphQL](https://github.com/wp-graphql/wp-graphql) plugin on WordPress.
 2. Change the Permalink settings under `Settings > Permalinks` to a `Post name` url structure. This is necessary to reference posts by their slug.
 
-Because [WordPress.com](https://wordpress.com), unlike [WordPress.org](https://wordpress.org) does not allow editing source php files, a workaround is used for the following steps:
+Because [WordPress.com](https://wordpress.com), unlike [WordPress.org](https://wordpress.org), does not allow editing source php files, a workaround is used for the following steps:
 
 3. Download the [Twenty Seventeen](https://en-ca.wordpress.org/themes/twentyseventeen/) theme locally.
 4. Modify the `functions.php` file in the root of the Twenty Seventeen theme to include the required php custom functions from `custom.php`. These can go anywhere in the file.
