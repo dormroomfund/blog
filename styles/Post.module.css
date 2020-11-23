@@ -118,7 +118,6 @@ Post — Content
 .content > div a {
   color: #FF3842;
   text-decoration: none;
-  word-break: break-all;
 }
 
 .content > div > figure {
