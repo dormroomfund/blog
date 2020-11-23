@@ -25,8 +25,10 @@ export default function Home({ posts }) {
         <a className={styles.feature}>
           <img src={posts[0].featuredImage} alt="Featured article image" />
           <div>
-            <h2>{posts[0].title}</h2>
-            <div dangerouslySetInnerHTML={{ __html: posts[0].excerpt }} />
+            <div>
+              <h2>{posts[0].title}</h2>
+              <div dangerouslySetInnerHTML={{ __html: posts[0].excerpt }} />
+            </div>
             <p>Feature &nbsp;·&nbsp; {posts[0].readingTime} min read</p>
           </div>
         </a>
