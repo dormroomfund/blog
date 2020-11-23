@@ -10,12 +10,11 @@
   "dependencies": {
     "@apollo/client": "^3.2.7",
     "add": "^2.0.6",
-    "chrome-aws-lambda": "^5.5.0",
     "dayjs": "^1.9.6",
     "graphql": "^0.13.2",
     "jsonp": "^0.2.1",
     "next": "10.0.1",
-    "puppeteer-core": "^5.5.0",
+    "puppeteer": "^5.5.0",
     "query-string": "^6.13.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
