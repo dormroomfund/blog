@@ -15,39 +15,40 @@ Final Draft is [Dorm Room Fund's](https://dormroomfund.com) go-to blog for all t
 
 ### Project structure
 
-```
-/apollo
-  index.js # Exports apollo client
-  parse.js # Functions to clean query responses
-  queries.js # GraphQL queries
-/ components
-  Layout.js # Layout wrapper. Handles header, content, footer, meta.
-  Newsletter.js # Mailchimp Newsletter CTA component
-/ pages
-  /api
-    meta.js # Renders dynamic meta image based on post slug
-  /post
-    [slug].js # Individual post page
-  _app.js
-  _document.js
-  404.js # 404 page
-  index.js # Home page
-  search.js # Search page
-/public
-  /brand # Brand assets
-  /favicon # Favicons
-  /fonts # Font files
-  /vectors # Vector (SVG) assets
-/styles # Stylesheets
-/utils
-  index.js # Convenient hooks
-.env.local.sample # Environment variables
-.gitignore
-.prettierrc
-README.md
-jsconfig.json # Better path configuration
-package.json
-yarn.lock
+```bash
+├── apollo
+│   ├── index.js # Exports apollo client
+│   ├── parse.js # Functions to clean query responses
+│   └── queries.js # GraphQL queries
+├── components
+│   ├── Layout.js # Layout wrapper. Handles header, content, footer, meta.
+│   └── Newsletter.js # Mailchimp Newsletter CTA component
+├── pages
+│   ├── 404.js # 404 page
+│   ├── _app.js
+│   ├── _document.js
+│   ├── api
+│   │   └── meta.js  # Renders dynamic meta image based on post slug
+│   ├── index.js # Home page
+│   ├── post
+│   │   └── [slug].js # Individual post page
+│   └── search.js # Search page
+├── public
+│   ├── brand # Brand assets
+│   ├── favicon # Favicons
+│   ├── fonts # Font files
+│   └── vectors # Vector (SVG) assets
+├── styles # Stylesheets
+├── utils
+│   └── index.js # Convenient hooks (useLocalStorage)
+├── .env.local.sample # Environment variables
+├── .gitignore
+├── .prettierrc
+├── README.md
+├── custom.php # Custom PHP functions for WordPress.com headless CMS
+├── jsconfig.json # Better absolute path configuration
+├── package.json
+└── yarn.lock
 ```
 
 ## Prerequisites
@@ -96,3 +97,7 @@ heroku buildpacks:add --index 1 heroku/nodejs
 # Push to Heroku
 git push heroku master
 ```
+
+## License
+
+[GNU Affero General Public License v3.0](https://github.com/dormroomfund/blog/blob/master/LICENSE)
