@@ -40,9 +40,9 @@ const getScreenshot = async function ({ html }) {
     // Default chrome args
     args: chrome.args,
     // For local testing, change to: "/Applications/Chrome.app/Contents/MacOS/Google Chrome"
-    executablePath: "/Applications/Chrome.app/Contents/MacOS/Google Chrome", //await chrome.executablePath,
+    executablePath: await chrome.executablePath,
     // For local testing, change to: true
-    headless: false,
+    headless: true,
   });
 
   // Create page, set content, wait for load
