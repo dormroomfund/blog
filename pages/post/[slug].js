@@ -80,7 +80,7 @@ export default function Post({ slug, url, post, featured }) {
         />
         <meta
           property="og:image"
-          content={`https://blog.dormroomfund.org/api/meta?slug=${slug}`}
+          content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
         />
 
         {/* Meta: Twitter */}
@@ -94,7 +94,7 @@ export default function Post({ slug, url, post, featured }) {
         />
         <meta
           property="twitter:image"
-          content={`https://blog.dormroomfund.org/api/meta?slug=${slug}`}
+          content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
         />
       </Head>
 
