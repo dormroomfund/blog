@@ -66,5 +66,24 @@ function postQueryGenerator(slug) {
   }`;
 }
 
+/**
+ * Posts: Generate GraphQL request from dynamic page slug for meta
+ * @param {string} slug post slug
+ * @returns {gql} gql query object
+ */
+function postMetaGenerator(slug) {
+  return gql`
+  query MyQuery {
+    postBy(slug: "${slug}") {
+      title
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }`;
+}
+
 // Export queries
-export { ALL_POSTS, postQueryGenerator };
+export { ALL_POSTS, postQueryGenerator, postMetaGenerator };

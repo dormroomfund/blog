@@ -11,10 +11,11 @@ import { Modal } from "react-responsive-modal"; // Newsletter CTA modal
 import Newsletter from "components/Newsletter"; // Newsletter CTA modal component
 import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 
-// URL --> current page slug
+// SLUG --> current page slug
+// URL --> current page url
 // POST --> post content
 // FEATURED --> array of 3 other post titles, images, and slugs
-export default function Post({ url, post, featured }) {
+export default function Post({ slug, url, post, featured }) {
   const [modalOpen, setModalOpen] = useState(false); // Newsletter CTA status
   const [newsletter, setNewsletter] = useLocalStorage("drf-newsletter"); // Newsletter previous check
 
@@ -77,7 +78,10 @@ export default function Post({ url, post, featured }) {
             post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
           )}...`}
         />
-        <meta property="og:image" content={post.featuredImage.mediaItemUrl} />
+        <meta
+          property="og:image"
+          content={`https://blog.dormroomfund.org/api/meta?slug=${slug}`}
+        />
 
         {/* Meta: Twitter */}
         <meta property="twitter:url" content={url} />
@@ -90,7 +94,7 @@ export default function Post({ url, post, featured }) {
         />
         <meta
           property="twitter:image"
-          content={post.featuredImage.mediaItemUrl}
+          content={`https://blog.dormroomfund.org/api/meta?slug=${slug}`}
         />
       </Head>
 
@@ -209,6 +213,7 @@ export async function getServerSideProps({ params: { slug } }) {
   // Return data to page
   return {
     props: {
+      slug: slug,
       url: `https://blog.dormroomfund.org/post/${slug}`,
       post: post.post,
       featured: post.featuredPosts,
