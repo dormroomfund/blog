@@ -36,8 +36,8 @@ export default function Home({ posts }) {
       <div className={styles.posts}>
         {posts.slice(1).map((post, i) => {
           return (
-            <LazyLoad offset={300} once>
-              <Link href={post.uri} key={i}>
+            <LazyLoad offset={300} key={i} once>
+              <Link href={post.uri}>
                 <a>
                   <img src={post.featuredImage} alt="Featured image" />
                   <div>

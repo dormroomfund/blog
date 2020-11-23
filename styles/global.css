@@ -47,3 +47,34 @@ Custom Fonts
   font-weight: 700;
   font-display: swap;
 }
+
+/* 
+
+****************************************
+Newsletter CTA modal global styles
+****************************************
+
+*/
+.react-responsive-modal-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+.react-responsive-modal-modal {
+  max-width: 650px !important;
+  padding: 60px 70px 44px 70px !important;
+}
+
+.react-responsive-modal-closeButton:focus {
+  outline: none;
+}
+
+.react-responsive-modal-closeButton svg path {
+  fill: #BDBDBD;
+}
+
+@media screen and (max-width: 900px) {
+  .react-responsive-modal-modal {
+    padding: 60px 30px 20px 30px !important;
+  }
+}

@@ -3,14 +3,21 @@ import client from "apollo"; // Apollo GraphQL client
 import Head from "next/head"; // Head meta
 import Link from "next/link"; // Dynamic routing
 import Layout from "components/Layout"; // Layout wrapper
+import { useLocalStorage } from "utils"; // useLocalStorage hook for newsletter CTA
 import styles from "styles/Post.module.css"; // Component module styling
+import { useState, useEffect } from "react"; // React state management
 import { getSinglePost } from "apollo/parse"; // Collect post information
+import { Modal } from "react-responsive-modal"; // Newsletter CTA modal
+import Newsletter from "components/Newsletter"; // Newsletter CTA modal component
 import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 
 // URL --> current page slug
 // POST --> post content
 // FEATURED --> array of 3 other post titles, images, and slugs
 export default function Post({ url, post, featured }) {
+  const [modalOpen, setModalOpen] = useState(false); // Newsletter CTA status
+  const [newsletter, setNewsletter] = useLocalStorage("drf-newsletter"); // Newsletter previous check
+
   /**
    * Formats html entities in description strings
    * @param {string} string containing meta description
@@ -21,9 +28,34 @@ export default function Post({ url, post, featured }) {
     });
   };
 
+  /**
+   * Lifecycle to show newsletter on load
+   */
+  useEffect(() => {
+    // Trigger newsletter popup after 15 seconds
+    const timedCTA = setTimeout(() => {
+      // If newsletter popup has not been shown before
+      if (!newsletter) {
+        // Set newsletter popup to shown in localStorage
+        setNewsletter("true");
+        // Show newsletter popup
+        setModalOpen(true);
+      }
+    }, 15 * 1000);
+
+    // --> Lifecycle method: on unmount, clear timeout
+    return () => clearTimeout(timedCTA);
+  }, []);
+
   return (
     // Render page in layout
     <Layout isPost>
+      {/* Render Newsletter CTA modal */}
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} center>
+        {/* Newsletter component */}
+        <Newsletter close={() => setModalOpen(false)} />
+      </Modal>
+
       {/* Dynamic post meta */}
       <Head>
         {/* Meta: General meta */}
