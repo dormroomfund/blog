@@ -1,6 +1,6 @@
 <img src="https://i.imgur.com/tCvz99i.png" height="50" style="padding-bottom: 15px;"/>
 
-# Final Draft ([live](https://blog.dormroomfund.org))
+# Final Draft ([live](https://blog.dormroomfund.com))
 
 Final Draft is [Dorm Room Fund's](https://dormroomfund.com) go-to blog for all things student entrepreneruship.
 
