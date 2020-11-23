@@ -169,7 +169,7 @@ function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dorm Room Fund
+            <img src="/brand/logo.svg" alt="Dorm Room Fund logo" />
           </a>
         </div>
         <div>
@@ -212,7 +212,7 @@ function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dorm Room Fund
+            <img src="/brand/logo.svg" alt="Dorm Room Fund logo" />
           </a>
         </div>
         {/*
