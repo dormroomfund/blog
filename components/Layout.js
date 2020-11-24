@@ -269,12 +269,15 @@ function Footer() {
 
   return (
     <div className={styles.footer}>
+      {/* Left container */}
       <div>
         <h3>Super Secret Content</h3>
         <p>
           Stay up to date with job openings, invite-only events, and
           opportunities to join our team.
         </p>
+
+        {/* Email Newsletter Subscription CTA */}
         <div className={newsletter.newsletterBox}>
           <input
             type="email"
@@ -285,7 +288,10 @@ function Footer() {
           <button onClick={joinNewsletter}>{button}</button>
         </div>
       </div>
+
+      {/* Right container */}
       <div>
+        {/* Quicklinks */}
         <ul>
           <li>
             <a
@@ -306,6 +312,8 @@ function Footer() {
             </a>
           </li>
         </ul>
+
+        {/* Rights */}
         <span>Final Draft 2020</span>
       </div>
     </div>

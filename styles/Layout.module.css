@@ -182,22 +182,6 @@ Layout — Footer
   display: block;
 }
 
-/*
-.footer a {
-  color: black;
-  text-decoration: none;
-}
-
-.footer h1 {
-  font-size: 42px;
-  margin: 0px;
-}
-
-.footer h2 {
-  font-size: 17px;
-  margin: 5px 0px;
-}*/
-
 /* 
 
 ****************************************
@@ -223,6 +207,7 @@ Layout — Responsive
     display: initial !important;
   }
 
+  /* Layout — Footer */
   .footer > div {
     width: 100% !important;
     display: block;
