@@ -215,9 +215,11 @@ Post — Other featured articles
 
 */
 .others > div {
-  width: calc(100% - 260px);
+  max-width: 1120px;
+  width: calc(100% - 40px);
   margin: 0px auto;
   height: 100%;
+  padding: 0px 20px;
 }
 
 .others > div > h4 {
@@ -226,17 +228,20 @@ Post — Other featured articles
   margin-block-end: 50px;
 }
 
+.others > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .others > div > div > a {
   text-decoration: none;
-  max-width: 350px;
-  width: 100%;
   display: inline-block;
   vertical-align: top;
-  margin-right: 30px;
+  width: calc((100% - 60px) / 3);
 }
 
 .others > div > div > a > img {
-  width: 350px;
+  width: 100%;
   height: 250px;
   object-fit: cover;
 }
@@ -315,6 +320,15 @@ Post — Responsive
   /* Other featured articles */
   .others > div {
     width: calc(100% - 40px);
+  }
+
+  .others > div > div {
+    flex-direction: column;
+  }
+
+  .others > div > div > a {
+    width: 100%;
+    margin-block-end: 30px;
   }
 }
 
