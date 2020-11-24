@@ -126,7 +126,7 @@ Post — Content
   text-align: center;
 }
 
-.content > div > figure > img {
+.content > div figure img {
   width: 100%;
 }
 
