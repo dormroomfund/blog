@@ -311,6 +311,15 @@ function Footer() {
               Twitter
             </a>
           </li>
+          <li>
+            <a
+              href="https://dormroomfund.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Legal
+            </a>
+          </li>
         </ul>
 
         {/* Rights */}
