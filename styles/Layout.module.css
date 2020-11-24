@@ -121,19 +121,68 @@ Layout — Footer
 */
 
 .footer {
-  height: 200px;
-  width: 100%;
+  max-width: 1116px;
+  width: calc(100% - 40px);
+  margin: 0px auto;
+  padding: 40px 0px 116px 0px;
+  border-top: 2px solid #DCDCDC;
 }
 
 .footer > div {
-  width: calc(100% - 260px);
-  margin: 0px auto;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 2px solid #B7D8FF;
+  display: inline-block;
+  vertical-align: top;
 }
 
+.footer > div:nth-child(1) {
+  width: 65%;
+}
+
+.footer > div:nth-child(1) > div {
+  padding-top: 10px;
+}
+
+.footer > div:nth-child(2) {
+  width: 35%;
+}
+
+.footer > div h3 {
+  color: #424242;
+  font-size: 24px;
+  margin: 0px;
+}
+
+.footer > div p {
+  color: #424242;
+  font-size: 18px;
+  line-height: 140%;
+  max-width: 400px;
+}
+
+.footer > div ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.footer > div ul li {
+  margin: 5px 0px;
+}
+
+.footer > div ul li a {
+  text-decoration: none;
+  color: #424242;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.footer > div span {
+  color: #DCDCDC;
+  font-size: 18px;
+  margin-top: 30px;
+  display: block;
+}
+
+/*
 .footer a {
   color: black;
   text-decoration: none;
@@ -147,7 +196,7 @@ Layout — Footer
 .footer h2 {
   font-size: 17px;
   margin: 5px 0px;
-}
+}*/
 
 /* 
 
@@ -174,8 +223,12 @@ Layout — Responsive
     display: initial !important;
   }
 
-  /* Layout — Footer */
   .footer > div {
-    width: calc(100% - 40px);
+    width: 100% !important;
+    display: block;
+  }
+
+  .footer > div:nth-child(2) {
+    padding-top: 20px;
   }
 }

@@ -28,7 +28,7 @@ Newsletter
   padding: 50px 0px;
 }
 
-.newsletter > div > input {
+.newsletterBox > input {
   border: 2px solid #391463;
   color: #000;
   font-size: 17px;
@@ -37,15 +37,15 @@ Newsletter
   width: calc(100% - 20px);
 }
 
-.newsletter > div > input::placeholder {
+.newsletterBox > input::placeholder {
   color: #DCDCDC;
 }
 
-.newsletter > div > input:focus {
+.newsletterBox > input:focus {
   outline: none;
 }
 
-.newsletter > div > button {
+.newsletterBox > button {
   font-size: 17px;
   font-weight: bold;
   padding: 12px 30px;
@@ -64,7 +64,8 @@ Newsletter
   cursor: pointer;
 }
 
-.newsletter > button:focus {
+.newsletter > button:focus,
+.newsletter > button:active {
   outline: none;
 }
 
@@ -77,11 +78,11 @@ Layout — Responsive
 */
 
 @media screen and (max-width: 500px) {
-  .newsletter > div > input {
+  .newsletterBox > input {
     max-width: calc(100% - 22.5px);
   }
 
-  .newsletter > div > button {
+  .newsletterBox > button {
     display: block;
     width: calc(100% + 2px);
     margin-top: 10px;

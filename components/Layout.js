@@ -1,7 +1,10 @@
+import jsonp from "jsonp"; // JSON w/ Padding request
 import Head from "next/head"; // HTML head
 import Link from "next/link"; // Dynamic routing
+import queryString from "query-string"; // Parse object to query string
 import { useState, useEffect } from "react"; // State management
 import styles from "styles/Layout.module.css"; // Component module styling
+import newsletter from "styles/Newsletter.module.css"; // Newsletter CTA styling
 import { HamburgerButton } from "react-hamburger-button"; // Animated hamburger button
 
 export default function Layout(props) {
@@ -233,26 +236,77 @@ function Header() {
  * Page Global Footer
  */
 function Footer() {
+  const [email, setEmail] = useState(""); // Newsletter email
+  const [button, setButton] = useState("Sign Up"); // Button text
+
+  /**
+   * Subscribe to newsletter
+   */
+  const joinNewsletter = async () => {
+    // Create data object with email
+    const data = {
+      EMAIL: email,
+    };
+
+    // Make request to Mailchimp endpoint
+    await jsonp(
+      `${process.env.NEXT_PUBLIC_MAILCHIMP_POST_URL}&${queryString.stringify(
+        data
+      )}`,
+      // Override cross-origin
+      { param: "c" }
+    );
+
+    // Empty email and toggle button state
+    setEmail("");
+    setButton("Subscribed!");
+
+    // Revert button state after brief pause (2s)
+    setTimeout(() => {
+      setButton("Sign Up");
+    }, 2 * 1000);
+  };
+
   return (
     <div className={styles.footer}>
       <div>
-        <div>
-          <h1>
-            <Link href="/">
-              <a>Final Draft.</a>
-            </Link>
-          </h1>
-          <h2>
-            by{" "}
+        <h3>Super Secret Content</h3>
+        <p>
+          Stay up to date with job openings, invite-only events, and
+          opportunities to join our team.
+        </p>
+        <div className={newsletter.newsletterBox}>
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={joinNewsletter}>{button}</button>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li>
             <a
-              href="https://dormroomfund.com"
+              href="https://drive.google.com/drive/folders/13kIXHJjCRs5nfrqiww5aq_e0mzrJOY6J"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Dorm Room Fund
+              Press Kit
             </a>
-          </h2>
-        </div>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/DormRoomFund"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter
+            </a>
+          </li>
+        </ul>
+        <span>Final Draft 2020</span>
       </div>
     </div>
   );

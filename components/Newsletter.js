@@ -39,7 +39,7 @@ export default function Newsletter({ close }) {
       </p>
 
       {/* Newsletter signup */}
-      <div>
+      <div className={styles.newsletterBox}>
         <input
           type="email"
           placeholder="Email address"
