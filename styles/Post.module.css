@@ -120,14 +120,18 @@ Post — Content
   text-decoration: none;
 }
 
-.content > div > figure {
+.content > div figure {
   margin: 0px;
   width: 100% !important;
   text-align: center;
 }
 
 .content > div figure img {
+  height: auto;
+  max-height: 100vw;
+  max-width: 600px;
   width: 100%;
+  object-fit: cover;
 }
 
 .content > div > figure > figcaption {
