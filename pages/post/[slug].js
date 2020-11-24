@@ -214,7 +214,7 @@ export async function getServerSideProps({ params: { slug } }) {
   return {
     props: {
       slug: slug,
-      url: `https://blog.dormroomfund.org/post/${slug}`,
+      url: `https://blog.dormroomfund.com/post/${slug}`,
       post: post.post,
       featured: post.featuredPosts,
     },

@@ -73,7 +73,7 @@ const generateHTML = (title, featuredImageURL) => {
         <style>
           @font-face {
             font-family: 'Circular Std';
-            src: url("https://blog.dormroomfund.org/fonts/CircularStd-Bold.otf");
+            src: url("https://blog.dormroomfund.com/fonts/CircularStd-Bold.otf");
             font-style: bold;
             font-weight: 700;
             font-display: swap;
@@ -127,6 +127,7 @@ const generateHTML = (title, featuredImageURL) => {
 
         .pattern > div > img {
           height: 33px;
+          padding-bottom: 10px;
         }
 
         .pattern > div > h1 {
