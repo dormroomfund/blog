@@ -55,12 +55,12 @@ Final Draft is [Dorm Room Fund's](https://dormroomfund.com) go-to blog for all t
 
 There are a few configuration details (in terms of setting up the headless [WordPress.com](https://wordpress.com) CMS) that must be run through before testing locally or deploying.
 
-1. Install the [WPGraphQL](https://github.com/wp-graphql/wp-graphql) plugin on WordPress.
+1. Install the [WPGraphQL](https://github.com/wp-graphql/wp-graphql) and [wp-graphql-reading-time](https://github.com/m-muhsin/wp-graphql-reading-time) plugins on WordPress.
 2. Change the Permalink settings under `Settings > Permalinks` to a `Post name` url structure. This is necessary to reference posts by their slug.
 
 Because [WordPress.com](https://wordpress.com), unlike [WordPress.org](https://wordpress.org), does not allow editing source php files, a workaround is used for the following steps:
 
-3. Download the [Twenty Seventeen](https://en-ca.wordpress.org/themes/twentyseventeen/) theme locally.
+3. Download the [Twenty Seventeen](https://en-ca.wordpress.org/themes/twentyseventeen/) (or any other) theme locally.
 4. Modify the `functions.php` file in the root of the Twenty Seventeen theme to include the required php custom functions from `custom.php`. These can go anywhere in the file.
 5. Compress the Twenty Seventeen folder into a single `.zip` file.
 6. Upload the theme to WordPress and activate it.
