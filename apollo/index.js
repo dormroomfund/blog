@@ -1,20 +1,24 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client"; // Apollo client
 
+// Apollo cache override (for running in getServerSideProps)
+const noCache = {
+  watchQuery: {
+    fetchPolicy: "no-cache",
+    errorPolicy: "ignore",
+  },
+  query: {
+    fetchPolicy: "no-cache",
+    errorPolicy: "all",
+  },
+};
+
 // Create new Apollo client
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_WP_URL,
-  // Setup temporary cache
+  // Setup required in-memory cache
   cache: new InMemoryCache(),
-  defaultOptions: {
-    watchQuery: {
-      fetchPolicy: "no-cache",
-      errorPolicy: "ignore",
-    },
-    query: {
-      fetchPolicy: "no-cache",
-      errorPolicy: "all",
-    },
-  },
+  // Override in-memory cache with query overrides
+  defaultOptions: noCache,
 });
 
 // Export client
