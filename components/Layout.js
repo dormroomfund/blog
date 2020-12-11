@@ -126,6 +126,22 @@ function HTMLHead({ isPost }) {
         as="font"
         crossOrigin=""
       />
+
+      {/* Google Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-8XTR9WCB7L"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-8XTR9WCB7L');
+              `,
+        }}
+      />
     </Head>
   );
 }
