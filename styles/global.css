@@ -8,7 +8,7 @@ Global Styling
 
 body {
   margin: 0px;
-  font-family: 'Circular Std', sans-serif;
+  font-family: "Circular Std", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,7 +23,7 @@ Custom Fonts
 
 /* Circular Std Book */
 @font-face {
-  font-family: 'Circular Std';
+  font-family: "Circular Std";
   src: url("/fonts/CircularStd-Book.otf");
   font-style: normal;
   font-weight: 400;
@@ -32,7 +32,7 @@ Custom Fonts
 
 /* Circular Std Book Italic */
 @font-face {
-  font-family: 'Circular Std';
+  font-family: "Circular Std";
   src: url("/fonts/CircularStd-BookItalic.otf");
   font-style: italic;
   font-weight: 400;
@@ -41,7 +41,7 @@ Custom Fonts
 
 /* Circular Std Bold */
 @font-face {
-  font-family: 'Circular Std';
+  font-family: "Circular Std";
   src: url("/fonts/CircularStd-Bold.otf");
   font-style: bold;
   font-weight: 700;
@@ -70,11 +70,31 @@ Newsletter CTA modal global styles
 }
 
 .react-responsive-modal-closeButton svg path {
-  fill: #BDBDBD;
+  fill: #bdbdbd;
 }
 
 @media screen and (max-width: 900px) {
   .react-responsive-modal-modal {
     padding: 60px 30px 20px 30px !important;
   }
+}
+
+/* 
+
+****************************************
+nProgress Router styles overrides
+****************************************
+
+*/
+
+#nprogress {
+  z-index: 3;
+}
+
+#nprogress .bar {
+  background: #391463 !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #391463, 0 0 5px #391463 !important;
 }

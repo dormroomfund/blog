@@ -1,11 +1,19 @@
 import jsonp from "jsonp"; // JSON w/ Padding request
 import Head from "next/head"; // HTML head
 import Link from "next/link"; // Dynamic routing
+import Router from "next/router"; // Router
+import nProgress from "nprogress"; // nProgress
 import queryString from "query-string"; // Parse object to query string
 import { useState, useEffect } from "react"; // State management
 import styles from "styles/Layout.module.css"; // Component module styling
 import newsletter from "styles/Newsletter.module.css"; // Newsletter CTA styling
 import { HamburgerButton } from "react-hamburger-button"; // Animated hamburger button
+
+// Router load animations
+nProgress.configure({ showSpinner: false });
+Router.events.on("routeChangeStart", () => nProgress.start());
+Router.events.on("routeChangeComplete", () => nProgress.done());
+Router.events.on("routeChangeErorr", () => nProgress.done());
 
 export default function Layout(props) {
   return (
