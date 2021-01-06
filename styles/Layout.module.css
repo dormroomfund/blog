@@ -37,14 +37,7 @@ Layout — Header
 }
 
 /* Header links */
-.header > div:nth-child(1) > a,
-.header > div:nth-child(3) > a,
-.mobileMenu > div > a {
-  color: black;
-  font-weight: 500;
-  text-transform: uppercase;
-  text-decoration: none;
-  /*border-bottom: 2px solid black;*/
+.header > div:nth-child(1) > a {
   display: flex;
 }
 
@@ -57,6 +50,25 @@ Layout — Header
   font-weight: 700;
   text-decoration: none;
   font-size: 26px;
+}
+
+.header > div:nth-child(3) > button,
+.mobileMenu > div > button {
+  color: black;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  font-family: "Circular Std", sans-serif;
+  font-size: 16px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.header > div:nth-child(3) > button:focus {
+  outline: none;
 }
 
 /* Mobile menu */
@@ -91,12 +103,24 @@ Layout — Header
   height: 20px;
 }
 
-.mobileMenuOpen {
+.mobileMenuOpen,
+.searchOpen {
   display: initial !important;
 }
 
-.mobileMenuClosed {
+.mobileMenuClosed,
+.searchClosed {
   display: none !important;
+}
+
+.search {
+  position: fixed;
+  top: 72px;
+  z-index: 4;
+  width: calc(100% - 320px);
+  background-color: #fff;
+  box-shadow: 0px 6px 16px rgba(78, 78, 78, 0.2);
+  padding: 80px 160px;
 }
 
 /* 
@@ -196,6 +220,11 @@ Layout — Responsive
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
+  }
+
+  .search {
+    width: calc(100% - 50px);
+    padding: 50px 25px;
   }
 
   .header > div:nth-child(1),

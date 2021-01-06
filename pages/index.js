@@ -14,8 +14,8 @@ export default function Home({ posts }) {
           <div>
             <h1>Final Draft.</h1>
             <p>
-              The latest thoughts, news, and musings from Dorm Room Fund, 
-              the original student-run venture fund.
+              The latest thoughts, news, and musings from Dorm Room Fund, the
+              original student-run venture fund.
             </p>
           </div>
           <div>

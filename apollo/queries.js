@@ -85,5 +85,34 @@ function postMetaGenerator(slug) {
   }`;
 }
 
+/**
+ * Posts: Generate GraphQL request from search query
+ * @param {string} query defined by user
+ * @returns {gql} gql query object
+ */
+function postSearchGenerator(query) {
+  return gql`
+  query MyQuery {
+    posts(where: {search: "${query}"}) {
+      nodes {
+        title
+        uri
+        excerpt
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+        readingTime
+      }
+    }
+  }`;
+}
+
 // Export queries
-export { ALL_POSTS, postQueryGenerator, postMetaGenerator };
+export {
+  ALL_POSTS,
+  postMetaGenerator,
+  postQueryGenerator,
+  postSearchGenerator,
+};
