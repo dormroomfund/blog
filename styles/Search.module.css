@@ -1,0 +1,94 @@
+/* 
+
+****************************************
+Search input
+****************************************
+
+*/
+
+.searchContainer {
+  width: 100%;
+  border-bottom: 2px solid #bdbdbd;
+  height: 45px;
+}
+
+.searchContainer > img {
+  vertical-align: middle;
+  padding-right: 14px;
+}
+
+.searchContainer > input {
+  font-size: 32px;
+  vertical-align: middle;
+  width: calc(100% - 90px);
+  border: none;
+  background-color: transparent;
+}
+
+.searchContainer > input::placeholder {
+  color: #bdbdbd;
+}
+
+.searchContainer > input:focus {
+  outline: none;
+}
+
+.searchContainer > button {
+  vertical-align: middle;
+  padding: 0px;
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.searchContainer > button:focus {
+  outline: none;
+}
+
+/* 
+
+****************************************
+Search page
+****************************************
+
+*/
+
+.searchHead {
+  padding: 80px 130px;
+  background-color: #f5f6ff;
+}
+
+/* 
+
+****************************************
+Responsiveness
+****************************************
+
+*/
+
+@media screen and (max-width: 900px) {
+  .searchContainer {
+    height: 28px;
+  }
+
+  .searchContainer > img {
+    padding-right: 10px;
+    width: 20px;
+  }
+
+  .searchContainer > input {
+    font-size: 18px;
+    vertical-align: middle;
+    width: calc(100% - 60px);
+    border: none;
+  }
+
+  .searchContainer > button > img {
+    width: 20px;
+  }
+
+  .searchHead {
+    padding: 60px 20px;
+    background-color: #f5f6ff;
+  }
+}

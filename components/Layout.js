@@ -3,6 +3,7 @@ import Head from "next/head"; // HTML head
 import Link from "next/link"; // Dynamic routing
 import Router from "next/router"; // Router
 import nProgress from "nprogress"; // nProgress
+import Search from "components/Search"; // Search component
 import queryString from "query-string"; // Parse object to query string
 import { useState, useEffect } from "react"; // State management
 import styles from "styles/Layout.module.css"; // Component module styling
@@ -159,6 +160,7 @@ function HTMLHead({ isPost }) {
  */
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // Mobile menu state
+  const [searchOpen, setSearchOpen] = useState(false); // Search menu state
 
   /**
    * Updates mobile menu state on page resize
@@ -169,6 +171,46 @@ function Header() {
       // Automatically close mobile menu
       setMenuOpen(false);
     }
+  };
+
+  /**
+   * Toggles search and forces menu closure (if open)
+   */
+  const toggleSearch = () => {
+    // Force menu closure
+    setMenuOpen(false);
+
+    // Toggle search
+    searchOpen ? setSearchOpen(false) : setSearchOpen(true);
+  };
+
+  /**
+   * Appropriately toggle menu and search
+   */
+  const handleMobileMenuToggle = () => {
+    if (searchOpen) {
+      setMenuOpen(false);
+      // If searchOpen, close, but don't handle open case (toggleSearch)
+      searchOpen ? setSearchOpen(false) : null;
+      return;
+    }
+
+    // If menuOpen, close, else open
+    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
+  };
+
+  /**
+   * Handle on enter search for search input field
+   */
+  const handleSearch = (searchQuery) => {
+    // Force close search
+    setSearchOpen(false);
+
+    // Redirect to search with query params
+    Router.push({
+      pathname: "/search",
+      query: { search: searchQuery },
+    });
   };
 
   // --> Lifecycle: componentDidMount
@@ -205,20 +247,14 @@ function Header() {
           </Link>
         </div>
         <div>
-          {/* 
-          
-          Fast-follow: Search
-
-          <Link href="/search">
-            <a>Search</a>
-          </Link>*/}
+          <button onClick={toggleSearch}>Search</button>
         </div>
 
         {/* Mobile menu toggle (hidden >900px width) */}
         <div className={styles.headerMobileButton}>
           <HamburgerButton
-            open={menuOpen}
-            onClick={() => setMenuOpen((previous) => !previous)}
+            open={menuOpen || searchOpen}
+            onClick={handleMobileMenuToggle}
             width={24}
             height={14}
             strokeWidth={3}
@@ -226,6 +262,7 @@ function Header() {
           />
         </div>
       </div>
+
       {/* Mobile menu */}
       <div
         // Update open/closed state based on menuOpen
@@ -242,15 +279,18 @@ function Header() {
             <img src="/brand/logo.svg" alt="Dorm Room Fund logo" />
           </a>
         </div>
-        {/*
-
-        Fast-follow: Search
-
         <div>
-          <Link href="/search">
-            <a>Search</a>
-          </Link>
-        </div>*/}
+          <button onClick={toggleSearch}>Search</button>
+        </div>
+      </div>
+
+      {/* Search menu */}
+      <div
+        className={`${styles.search} ${
+          searchOpen ? styles.searchOpen : styles.searchClosed
+        }`}
+      >
+        <Search searchFunction={handleSearch} />
       </div>
     </>
   );
