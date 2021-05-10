@@ -19,6 +19,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   // Override in-memory cache with query overrides
   defaultOptions: noCache,
+  rejectUnauthorized: false,
 });
 
 // Export client

@@ -27,7 +27,7 @@ const ALL_POSTS = gql`
 function postQueryGenerator(slug) {
   return gql`
   query MyQuery {
-    postBy(slug: "${slug}") {
+    post(id: "${slug}" idType: SLUG) {
       title
       excerpt
       author {

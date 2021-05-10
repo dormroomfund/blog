@@ -42,7 +42,7 @@ const getSinglePost = async (QLPost) => {
   // Clean data from other featured posts
   otherPosts = otherPosts.filter((post) => {
     // Check for conflicting post title
-    if (post.title !== QLPost.postBy.title) {
+    if (post.title !== QLPost.post.title) {
       // Return cleaned data
       return {
         title: post.title,
@@ -58,16 +58,16 @@ const getSinglePost = async (QLPost) => {
   // Return post information
   return {
     post: {
-      title: QLPost.postBy.title,
-      excerpt: QLPost.postBy.excerpt,
+      title: QLPost.post.title,
+      excerpt: QLPost.post.excerpt,
       author: {
-        name: QLPost.postBy.author.node.name,
-        avatar: QLPost.postBy.author.node.avatar.url,
+        name: QLPost.post.author.node.name,
+        avatar: QLPost.post.author.node.avatar.url,
       },
-      featuredImage: QLPost.postBy.featuredImage.node,
-      date: QLPost.postBy.date,
-      content: QLPost.postBy.content,
-      tags: QLPost.postBy.tags.nodes,
+      featuredImage: QLPost.post.featuredImage.node,
+      date: QLPost.post.date,
+      content: QLPost.post.content,
+      tags: QLPost.post.tags.nodes,
     },
     featuredPosts,
   };

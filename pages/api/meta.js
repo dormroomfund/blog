@@ -18,9 +18,9 @@ export default async (req, res) => {
   // Generate meta image
   const html = generateHTML(
     // Post title
-    response.data.postBy.title,
+    response.data.post.title,
     // Post featured image
-    response.data.postBy.featuredImage.node.mediaItemUrl
+    response.data.post.featuredImage.node.mediaItemUrl
   );
   const result = await getScreenshot({ html });
 
