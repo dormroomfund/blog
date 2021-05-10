@@ -74,7 +74,7 @@ function postQueryGenerator(slug) {
 function postMetaGenerator(slug) {
   return gql`
   query MyQuery {
-    postBy(slug: "${slug}") {
+    post(id: "${slug}" idType: SLUG) {
       title
       featuredImage {
         node {
