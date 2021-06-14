@@ -59,6 +59,22 @@ Layout — Header
   font-size: 26px;
 }
 
+/* Header Apply Button */
+.header > div:nth-child(3) > a {
+  padding: 0 25px;
+  display: inline-block;
+  height: 42px;
+  line-height: 42px;
+  background-color: #391463;
+  transition: 50ms ease-in-out;
+  color: white;
+  font-size: 16px;
+}
+
+.header > div:nth-child(3) > a:hover {
+  opacity: 0.8;
+}
+
 /* Mobile menu */
 .headerMobileButton {
   position: absolute;
@@ -97,6 +113,25 @@ Layout — Header
 
 .mobileMenuClosed {
   display: none !important;
+}
+
+/* Mobile menu Apply Button */
+.mobileMenu > div:nth-child(2) > a {
+  padding: 0 25px;
+  display: inline-block;
+  height: 42px;
+  line-height: 42px;
+  background-color: #391463;
+  transition: 50ms ease-in-out;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px auto;
+}
+
+.mobileMenu > div:nth-child(2) > a:hover {
+  opacity: 0.8;
 }
 
 /* 

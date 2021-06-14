@@ -205,13 +205,13 @@ function Header() {
           </Link>
         </div>
         <div>
-          {/* 
-          
-          Fast-follow: Search
-
-          <Link href="/search">
-            <a>Search</a>
-          </Link>*/}
+          <a
+            href="https://airtable.com/embed/shrIkIQTZqkdcS05v"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply for Funding
+          </a>
         </div>
 
         {/* Mobile menu toggle (hidden >900px width) */}
@@ -242,15 +242,15 @@ function Header() {
             <img src="/brand/logo.svg" alt="Dorm Room Fund logo" />
           </a>
         </div>
-        {/*
-
-        Fast-follow: Search
-
         <div>
-          <Link href="/search">
-            <a>Search</a>
-          </Link>
-        </div>*/}
+          <a
+            href="https://airtable.com/embed/shrIkIQTZqkdcS05v"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply for Funding
+          </a>
+        </div>
       </div>
     </>
   );
