@@ -16,21 +16,27 @@ Router.events.on("routeChangeComplete", () => nProgress.done());
 Router.events.on("routeChangeErorr", () => nProgress.done());
 
 export default function Layout(props) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     // Layout wrapper
-    <div className={styles.layout}>
-      {/* HTML Head */}
-      <HTMLHead isPost={props.isPost} />
+    mounted && (
+      <div className={styles.layout}>
+        {/* HTML Head */}
+        <HTMLHead isPost={props.isPost} />
 
-      {/* Header component */}
-      <Header />
+        {/* Header component */}
+        <Header />
 
-      {/* Wrapper to contain child components */}
-      <div className={styles.content}>{props.children}</div>
+        {/* Wrapper to contain child components */}
+        <div className={styles.content}>{props.children}</div>
 
-      {/* Footer component */}
-      <Footer />
-    </div>
+        {/* Footer component */}
+        <Footer />
+      </div>
+    )
   );
 }
 
