@@ -96,6 +96,9 @@ export default function Post({ slug, url, post, featured }) {
           property="twitter:image"
           content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
         />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@DormRoomFund" />
+        <meta name="twitter:creator" content="@DormRoomFund" />
       </Head>
 
       {/* Post content */}
