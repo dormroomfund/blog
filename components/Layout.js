@@ -48,7 +48,7 @@ function HTMLHead({ isPost }) {
     <Head>
       {/* Shared meta */}
       <meta property="og:type" content="website" />
-      <meta property="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary_large_image" />
 
       {!isPost ? (
         // If page is not an individual post
@@ -76,17 +76,14 @@ function HTMLHead({ isPost }) {
           />
 
           {/* Meta: Twitter */}
+          <meta name="twitter:url" content="https://blog.dormroomfund.com/" />
+          <meta name="twitter:title" content="Final Draft" />
           <meta
-            property="twitter:url"
-            content="https://blog.dormroomfund.com/"
-          />
-          <meta property="twitter:title" content="Final Draft" />
-          <meta
-            property="twitter:description"
+            name="twitter:description"
             content="Dorm Room Fund's go-to blog for all things student entrepreneurship."
           />
           <meta
-            property="twitter:image"
+            name="twitter:image"
             content="https://blog.dormroomfund.com/brand/meta.png"
           />
         </>

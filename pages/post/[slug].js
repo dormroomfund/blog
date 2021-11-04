@@ -86,16 +86,16 @@ export default function Post({ slug, url, post, featured }) {
         {/* Meta: Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@DormRoomFund" />
-        <meta property="twitter:url" content={url} />
-        <meta property="twitter:title" content={post.title} />
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:title" content={post.title} />
         <meta
-          property="twitter:description"
+          name="twitter:description"
           content={`${handleEntities(
             post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
           )}...`}
         />
         <meta
-          property="twitter:image"
+          name="twitter:image"
           content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
         />
       </Head>
