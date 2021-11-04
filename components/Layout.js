@@ -301,13 +301,20 @@ function Footer() {
     <div className={styles.footer}>
       {/* Left container */}
       <div>
-        <h3>Super Secret Content</h3>
+        {/* Email Newsletter Subscription CTA */}
+        <iframe
+          src="https://dormroomfund.substack.com/embed"
+          width="480"
+          height="320"
+          frameborder="0"
+          scrolling="no"
+        ></iframe>
+        {/* <h3>Super Secret Content</h3>
         <p>
           Stay up to date with job openings, invite-only events, and
           opportunities to join our team.
         </p>
 
-        {/* Email Newsletter Subscription CTA */}
         <div className={newsletter.newsletterBox}>
           <input
             type="email"
@@ -316,7 +323,7 @@ function Footer() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button onClick={joinNewsletter}>{button}</button>
-        </div>
+        </div> */}
       </div>
 
       {/* Right container */}
