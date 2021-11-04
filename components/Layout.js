@@ -49,6 +49,8 @@ function HTMLHead({ isPost }) {
       {/* Shared meta */}
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@DormRoomFund" />
+      <meta name="twitter:site" content="@DormRoomFund" />
 
       {!isPost ? (
         // If page is not an individual post

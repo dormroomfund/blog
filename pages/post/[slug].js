@@ -85,7 +85,6 @@ export default function Post({ slug, url, post, featured }) {
 
         {/* Meta: Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@DormRoomFund" />
         <meta name="twitter:url" content={url} />
         <meta name="twitter:title" content={post.title} />
         <meta
