@@ -1,208 +1,231 @@
 .head {
-  padding: 80px 0px;
-  background-color: #F5F6FF;
+	padding: 80px 0px;
+	background-color: #f5f6ff;
 }
 
 .head > div {
-  max-width: 1100px;
-  padding: 0px 133px;
-  width: calc(100% - 266px);
-  display: flex;
-  margin: 0px auto;
-  justify-content: space-between;
+	max-width: 1100px;
+	padding: 0px 133px;
+	width: calc(100% - 266px);
+	display: flex;
+	margin: 0px auto;
+	justify-content: space-between;
 }
 
 .head > div > div:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-right: 70px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding-right: 70px;
 }
 
 .head > div > div:nth-child(1) > h1 {
-  font-size: 80px;
-  line-height: 100px;
-  color: #391463;
-  margin: 0px;
+	font-size: 80px;
+	line-height: 100px;
+	color: #391463;
+	margin: 0px;
 }
 
 .head > div > div:nth-child(1) > p {
-  color: #424242;
-  font-size: 21px;
-  line-height: 38px;
-  max-width: 580px;
+	color: #424242;
+	font-size: 21px;
+	line-height: 38px;
+	max-width: 580px;
 }
 
 .head > div > div:nth-child(2) > img {
-  max-width: 400px;
-  max-height: 250px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	max-width: 400px;
+	max-height: 250px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .feature {
-  max-width: 1180px;
-  width: 100%;
-  margin: 80px auto 0px auto;
-  display: block;
-  text-decoration: none;
+	max-width: 1180px;
+	width: 100%;
+	margin: 80px auto 0px auto;
+	display: block;
+	text-decoration: none;
 }
 
 .feature > img {
-  width: 100%;
-  max-height: 635px;
-  object-fit: cover;
+	width: 100%;
+	max-height: 635px;
+	object-fit: cover;
 }
 
 .feature > div {
-  display: inline-block;
-  background-color: #F5F6FF;
-  max-width: 825px;
-  padding: 60px;
-  width: calc(100% - 220px);
-  color: #424242;
-  margin-top: -150px;
-  margin-left: 100px;
+	display: inline-block;
+	background-color: #f5f6ff;
+	max-width: 825px;
+	padding: 60px;
+	width: calc(100% - 220px);
+	color: #424242;
+	margin-top: -150px;
+	margin-left: 100px;
 }
 
 .feature > div > div {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .feature > div > div > h2 {
-  font-size: 32px;
-  line-height: 45px;
-  margin: 0px;
-  max-width: 430px;
+	font-size: 32px;
+	line-height: 45px;
+	margin: 0px;
+	max-width: 430px;
 }
 
 .feature > div > div > div > p {
-  font-size: 18px;
-  line-height: 27px;
-  margin: 0px;
-  display: inline-block;
+	font-size: 18px;
+	line-height: 27px;
+	margin: 0px;
+	display: inline-block;
 }
 
 .posts {
-  max-width: 1000px;
-  padding: 0px 20px;
-  width: calc(100% - 40px);
-  margin: 30px auto 80px auto;
+	max-width: 1000px;
+	padding: 0px 20px;
+	width: calc(100% - 40px);
+	margin: 30px auto 0px auto;
 }
 
 .posts > div {
-  display: inline-block;
+	display: inline-block;
 }
 
 .posts > div:nth-child(odd) {
-  margin-right: 16px;
+	margin-right: 16px;
 }
 
 .posts > div:nth-child(even) {
-  margin-left: 16px;
+	margin-left: 16px;
 }
 
 .posts > div > a {
-  text-decoration: none;
-  display: inline-block;
-  vertical-align: top;
-  max-width: 475px;
-  padding-bottom: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: top;
+	max-width: 475px;
+	padding-bottom: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .posts > div > a > img {
-  max-width: 475px;
-  max-height: 475px;
-  width: 90vw;
-  height: 90vw;
-  object-fit: cover;
+	max-width: 475px;
+	max-height: 475px;
+	width: 90vw;
+	height: 90vw;
+	object-fit: cover;
 }
 
 .posts > div > a > div {
-  width: calc(100% - 64px);
-  background-color: #ffffff;
-  display: inline-block;
-  margin-top: -120px;
-  margin-bottom: 20px;
+	width: calc(100% - 64px);
+	background-color: #ffffff;
+	display: inline-block;
+	margin-top: -120px;
+	margin-bottom: 20px;
 }
 
 .posts > div > a > div > h3 {
-  font-size: 32px;
-  line-height: 45px;
-  color: #424242;
-  margin-right: 30px;
+	font-size: 32px;
+	line-height: 45px;
+	color: #424242;
+	margin-right: 30px;
 }
 
 .posts > div > a > div > p {
-  color: #424242;
-  font-size: 15px;
-  line-height: 22px;
-  margin-bottom: 31px;
+	color: #424242;
+	font-size: 15px;
+	line-height: 22px;
+	margin-bottom: 31px;
 }
 
 .posts > div > a > div > div > p {
-  color: #424242;
-  font-size: 15px;
-  line-height: 22px;
-  margin-bottom: 31px;
+	color: #424242;
+	font-size: 15px;
+	line-height: 22px;
+	margin-bottom: 31px;
 }
 
 .posts > div > a > div > div > p > span > span {
-  display: none;
+	display: none;
+}
+
+.loadMore {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: -70px 0px 30px 0px;
+}
+
+.loadMore > a {
+	padding: 0 25px;
+	display: inline-block;
+	height: 42px;
+	line-height: 42px;
+	background-color: #391463;
+	transition: 50ms ease-in-out;
+	color: white;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.loadMore > a:hover {
+	opacity: 0.8;
 }
 
 @media screen and (max-width: 1080px) {
-  .head > div > div:nth-child(2) {
-    display: none;
-  }
+	.head > div > div:nth-child(2) {
+		display: none;
+	}
 
-  .posts > div > a {
-    max-width: 100%;
-  }
+	.posts > div > a {
+		max-width: 100%;
+	}
 
-  .posts > div:nth-child(odd),
-  .posts > div:nth-child(even) {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  
-  .posts > div > a > img {
-    max-width: 100%;
-    max-height: 475px;
-    width: 100%;
-    object-fit: cover;
-  }
+	.posts > div:nth-child(odd),
+	.posts > div:nth-child(even) {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.posts > div > a > img {
+		max-width: 100%;
+		max-height: 475px;
+		width: 100%;
+		object-fit: cover;
+	}
 }
 
 @media screen and (max-width: 900px) {
-  .head > div {
-    padding: 0px 20px;
-    width: calc(100% - 40px);
-  }
+	.head > div {
+		padding: 0px 20px;
+		width: calc(100% - 40px);
+	}
 
-  .head > div > div:nth-child(1) {
-    width: 100%;
-    text-align: center;
-    padding-right: 0px;
-  }
+	.head > div > div:nth-child(1) {
+		width: 100%;
+		text-align: center;
+		padding-right: 0px;
+	}
 
-  .head > div > div:nth-child(1) > p {
-    margin: 0px auto;
-  }
+	.head > div > div:nth-child(1) > p {
+		margin: 0px auto;
+	}
 
-  .feature > div > div {
-    flex-direction: column;
-  }
+	.feature > div > div {
+		flex-direction: column;
+	}
 
-  .feature > div > div > h2 {
-    max-width: none;
-  }
+	.feature > div > div > h2 {
+		max-width: none;
+	}
 
-  .feature > div > div > div {
-    margin-block-start: 20px;
-  }
+	.feature > div > div > div {
+		margin-block-start: 20px;
+	}
 }
