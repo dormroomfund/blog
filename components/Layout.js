@@ -47,6 +47,7 @@ function HTMLHead({ isPost }) {
   return (
     <Head>
       {/* Shared meta */}
+      <meta content="text/html; charset=UTF-8" name="Content-Type" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@DormRoomFund" />
