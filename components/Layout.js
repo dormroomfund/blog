@@ -302,10 +302,13 @@ function Footer() {
       {/* Left container */}
       <div>
         {/* Email Newsletter Subscription CTA */}
+        <h3>Super Secret Content</h3>
+        <p>
+          Stay up to date with job openings, invite-only events, and
+          opportunities to join our team.
+        </p>
         <iframe
           src="https://dormroomfund.substack.com/embed"
-          width="480"
-          height="320"
           frameborder="0"
           scrolling="no"
         ></iframe>
