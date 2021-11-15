@@ -49,14 +49,7 @@ export default function Post({ slug, url, post, featured }) {
   }, []);
 
   return (
-    // Render page in layout
-    <Layout isPost>
-      {/* Render Newsletter CTA modal */}
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} center>
-        {/* Newsletter component */}
-        <Newsletter close={() => setModalOpen(false)} />
-      </Modal>
-
+    <>
       {/* Dynamic post meta */}
       <Head>
         {/* Meta: General meta */}
@@ -98,108 +91,116 @@ export default function Post({ slug, url, post, featured }) {
           content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
         />
       </Head>
+      {/* Render page in layout */}
+      <Layout isPost>
+        {/* Render Newsletter CTA modal */}
+        <Modal open={modalOpen} onClose={() => setModalOpen(false)} center>
+          {/* Newsletter component */}
+          <Newsletter close={() => setModalOpen(false)} />
+        </Modal>
 
-      {/* Post content */}
-      <div className={styles.post}>
-        {/* Article title container */}
-        <div className={styles.head}>
-          {/* Article title */}
-          <h1>{post.title}</h1>
+        {/* Post content */}
+        <div className={styles.post}>
+          {/* Article title container */}
+          <div className={styles.head}>
+            {/* Article title */}
+            <h1>{post.title}</h1>
 
-          {/* Article metadata */}
-          <div>
-            <img src={post.author.avatar} alt="Author avatar" />
-            <h4>{post.author.name}</h4>
-            <span>|</span>
-            <span>{dayjs(new Date(post.date)).format("MMMM D, YYYY")}</span>
+            {/* Article metadata */}
+            <div>
+              <img src={post.author.avatar} alt="Author avatar" />
+              <h4>{post.author.name}</h4>
+              <span>|</span>
+              <span>{dayjs(new Date(post.date)).format("MMMM D, YYYY")}</span>
+            </div>
+          </div>
+
+          {/* Article featured image */}
+          <div className={styles.featuredImage}>
+            {/* Image */}
+            <img
+              src={post.featuredImage.mediaItemUrl}
+              alt="Article featured image"
+            />
+            {/* Injected caption */}
+            <div
+              dangerouslySetInnerHTML={{ __html: post.featuredImage.caption }}
+            />
+          </div>
+
+          {/* Article content */}
+          <div className={styles.content}>
+            {/* Inject content */}
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
+
+          {/* Article tags + social buttons */}
+          <div className={styles.foot}>
+            {/* Article tags */}
+            <div>
+              {post.tags && post.tags.length > 0
+                ? // If tags array exists and contains > 0 tags
+                  post.tags.map((tag, i) => {
+                    // Loop through and render tag names
+                    return <span key={i}>{tag.name}</span>;
+                  })
+                : // Else, render nothing
+                  null}
+            </div>
+
+            {/* Article social buttons */}
+            <div>
+              {/* URL share link */}
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <img src="/vectors/link.svg" alt="Link share button" />
+              </a>
+
+              {/* Twitter share link */}
+              <a
+                href={`http://twitter.com/share?text=Check%20out%20Dorm%20Room%20Fund%27s%20post:&url=${url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/vectors/twitter.svg" alt="Twitter share button" />
+              </a>
+
+              {/* Facebook share link */}
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=Check%20out%20Dorm%20Room%20Fund%27s%20post:`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/vectors/facebook.svg" alt="Facebook share button" />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Article featured image */}
-        <div className={styles.featuredImage}>
-          {/* Image */}
-          <img
-            src={post.featuredImage.mediaItemUrl}
-            alt="Article featured image"
-          />
-          {/* Injected caption */}
-          <div
-            dangerouslySetInnerHTML={{ __html: post.featuredImage.caption }}
-          />
-        </div>
-
-        {/* Article content */}
-        <div className={styles.content}>
-          {/* Inject content */}
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </div>
-
-        {/* Article tags + social buttons */}
-        <div className={styles.foot}>
-          {/* Article tags */}
+        {/* Other featured articles section */}
+        <div className={styles.others}>
           <div>
-            {post.tags && post.tags.length > 0
-              ? // If tags array exists and contains > 0 tags
-                post.tags.map((tag, i) => {
-                  // Loop through and render tag names
-                  return <span key={i}>{tag.name}</span>;
-                })
-              : // Else, render nothing
-                null}
-          </div>
-
-          {/* Article social buttons */}
-          <div>
-            {/* URL share link */}
-            <a href={url} target="_blank" rel="noopener noreferrer">
-              <img src="/vectors/link.svg" alt="Link share button" />
-            </a>
-
-            {/* Twitter share link */}
-            <a
-              href={`http://twitter.com/share?text=Check%20out%20Dorm%20Room%20Fund%27s%20post:&url=${url}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/vectors/twitter.svg" alt="Twitter share button" />
-            </a>
-
-            {/* Facebook share link */}
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=Check%20out%20Dorm%20Room%20Fund%27s%20post:`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/vectors/facebook.svg" alt="Facebook share button" />
-            </a>
+            <h4>You might also like</h4>
+            <div>
+              {featured.map((post, i) => {
+                // For each featured article
+                return (
+                  // Return dynamic link to article
+                  <Link href={`/post${post.uri}`} key={i}>
+                    <a>
+                      <img
+                        src={post.featuredImage.node.mediaItemUrl}
+                        alt="Article image"
+                      />
+                      <h2>{post.title}</h2>
+                    </a>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Other featured articles section */}
-      <div className={styles.others}>
-        <div>
-          <h4>You might also like</h4>
-          <div>
-            {featured.map((post, i) => {
-              // For each featured article
-              return (
-                // Return dynamic link to article
-                <Link href={`/post${post.uri}`} key={i}>
-                  <a>
-                    <img
-                      src={post.featuredImage.node.mediaItemUrl}
-                      alt="Article image"
-                    />
-                    <h2>{post.title}</h2>
-                  </a>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
