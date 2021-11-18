@@ -88,7 +88,7 @@ export default function Post({ slug, url, post, featured }) {
         />
         <meta
           name="twitter:image"
-          content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
+          content={`${post.featuredImage.mediaItemUrl}`}
         />
       </Head>
       {/* Render page in layout */}
@@ -211,7 +211,6 @@ export async function getServerSideProps({ params: { slug } }) {
   const query = postQueryGenerator(slug); // Generate gql query
   const response = await client.query({ query: query }); // Collect GraphQL response
   const post = await getSinglePost(response.data); // Clean GraphQL response
-
   // Return data to page
   return {
     props: {
