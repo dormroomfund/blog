@@ -15,6 +15,8 @@ Router.events.on("routeChangeStart", () => nProgress.start());
 Router.events.on("routeChangeComplete", () => nProgress.done());
 Router.events.on("routeChangeErorr", () => nProgress.done());
 
+const YEAR = new Date().getFullYear();
+
 export default function Layout(props) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -364,7 +366,7 @@ function Footer() {
         </ul>
 
         {/* Rights */}
-        <span>Final Draft 2020</span>
+        <span>Final Draft {YEAR}</span>
       </div>
     </div>
   );
