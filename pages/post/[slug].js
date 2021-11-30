@@ -62,7 +62,7 @@ export default function Post({ slug, url, post, featured }) {
           )}...`}
         />
 
-        {/* Meta: Open Graph + Facebook */}
+        {/* Meta: Open Graph + Facebook + LinkedIn */}
         <meta property="og:url" content={url} />
         <meta property="og:title" content={post.title} />
         <meta
@@ -72,8 +72,8 @@ export default function Post({ slug, url, post, featured }) {
           )}...`}
         />
         <meta
-          property="og:image"
-          content={`https://blog.dormroomfund.com/api/meta?slug=${slug}`}
+          name="og:image"
+          content={`${post.featuredImage.mediaItemUrl}`}
         />
 
         {/* Meta: Twitter */}
