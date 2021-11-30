@@ -62,7 +62,7 @@ export default function Post({ slug, url, post, featured }) {
           )}...`}
         />
 
-        {/* Meta: Open Graph + Facebook + LinkedIn */}
+        {/* Meta: Open Graph + Facebook */}
         <meta property="og:url" content={url} />
         <meta property="og:title" content={post.title} />
         <meta
