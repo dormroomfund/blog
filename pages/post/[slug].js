@@ -71,8 +71,10 @@ export default function Post({ slug, url, post, featured }) {
             post.excerpt.replace(/<[^>]+>/g, "").slice(0, -11)
           )}...`}
         />
+        <meta name="og:image" content={`${post.featuredImage.mediaItemUrl}`} />
         <meta
-          name="og:image"
+          name="image"
+          property="og:image"
           content={`${post.featuredImage.mediaItemUrl}`}
         />
 
