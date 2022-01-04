@@ -33,7 +33,7 @@ export default function Post({ slug, url, post, featured }) {
 
   /**
    * Returns the height of the document.
-   * @param document - The document object.
+   * @param document - The document object: https://developer.mozilla.org/en-US/docs/Web/API/Document
    * @returns The height of the document.
    */
   const getDocHeight = (document) => {
