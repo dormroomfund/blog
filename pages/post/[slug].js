@@ -10,6 +10,7 @@ import { getSinglePost } from "apollo/parse"; // Collect post information
 import { Modal } from "react-responsive-modal"; // Newsletter CTA modal
 import Newsletter from "components/Newsletter"; // Newsletter CTA modal component
 import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
+import ProgressBar from "components/ProgressBar"; // Progress bar
 
 // SLUG --> current page slug
 // URL --> current page url
@@ -18,6 +19,7 @@ import { postQueryGenerator } from "apollo/queries"; // Posts retrieval query
 export default function Post({ slug, url, post, featured }) {
   const [modalOpen, setModalOpen] = useState(false); // Newsletter CTA status
   const [newsletter, setNewsletter] = useLocalStorage("drf-newsletter"); // Newsletter previous check
+  const [scrollPosition, setScrollPosition] = useState(0); // Progress bar scroll position
 
   /**
    * Formats html entities in description strings
@@ -27,6 +29,38 @@ export default function Post({ slug, url, post, featured }) {
     return (string + "").replace(/&#\d+;/gm, function (s) {
       return String.fromCharCode(s.match(/\d+/gm)[0]);
     });
+  };
+
+  /**
+   * Returns the height of the document.
+   * @param document - The document object: https://developer.mozilla.org/en-US/docs/Web/API/Document
+   * @returns The height of the document.
+   */
+  const getDocHeight = (document) => {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+  };
+
+  /**
+   * Calculates the scroll position of the page and stores it in the `scrollPosition` state.
+   * @param document - The document object: https://developer.mozilla.org/en-US/docs/Web/API/Document
+   * @param window - The window object: https://developer.mozilla.org/en-US/docs/Web/API/Window
+   * @returns None
+   */
+  const calculateScrollDistance = (document, window) => {
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = getDocHeight(document);
+
+    const totalDocScrollLength = docHeight - windowHeight;
+    const _scrollPosition = Math.floor(scrollTop / totalDocScrollLength * 100);
+    setScrollPosition(_scrollPosition);
   };
 
   /**
@@ -44,8 +78,21 @@ export default function Post({ slug, url, post, featured }) {
       }
     }, 15 * 1000);
 
-    // --> Lifecycle method: on unmount, clear timeout
-    return () => clearTimeout(timedCTA);
+    const handleScroll = () => {
+      window.requestAnimationFrame(() => {
+        // Calculate the scroll distance
+        calculateScrollDistance(document, window);
+      });
+    }
+
+    // listen to scroll event
+    document.addEventListener("scroll", handleScroll);
+
+    // --> Lifecycle method: on unmount, clear timeout, remove scroll event listener
+    return () => {
+      clearTimeout(timedCTA)
+      document.removeEventListener("scroll", handleScroll)
+    };
   }, []);
 
   return (
@@ -103,6 +150,7 @@ export default function Post({ slug, url, post, featured }) {
 
         {/* Post content */}
         <div className={styles.post}>
+          <ProgressBar scroll={`${scrollPosition}%`} />
           {/* Article title container */}
           <div className={styles.head}>
             {/* Article title */}
