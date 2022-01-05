@@ -159,6 +159,13 @@ function HTMLHead({ isPost }) {
               `,
         }}
       />
+
+      {/* Plausible Analytics */}
+      <script
+        defer
+        data-domain="blog.dormroomfund.com"
+        src="https://plausible.io/js/plausible.js"
+      ></script>
     </Head>
   );
 }
